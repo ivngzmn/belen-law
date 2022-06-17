@@ -10,6 +10,23 @@ const Skills = () => {
         <h2 className='text-5xl font-primary font-extrabold mb-4'>
           What we do
         </h2>
+        <div className='lg:grid lg:grid-cols-3 gap-12 py-10'>
+          {skills.map((item, index) => {
+            const { icon, title, description } = item;
+            return (
+              <div
+                className='flex flex-col items-center justify-center mb-16 last:mb-0 lg:mb-0'
+                key={index}
+              >
+                <img className='mb-6 w-16' src={icon} alt='' />
+                <h4 className='text-2xl mb-2 font-primary font-bold text-[#D9AB79]'>
+                  {title}
+                </h4>
+                <p className='max-w-[332px] lg:max-w-[350px]'>{description}</p>
+              </div>
+            );
+          })}
+        </div>
         <div className='pt-5'>
           <p className='max-w-6xl text-left mx-auto px-6 lg:px-0 mb-[20px]'>
             The Law Office of Belen Gomez, APC is an immigration law practice.
@@ -45,23 +62,6 @@ const Skills = () => {
           </li>
           <li>A payment plan may be available to you.</li>
         </ul>
-        <div className='lg:grid lg:grid-cols-3 gap-12 py-10'>
-          {skills.map((item, index) => {
-            const { icon, title, description } = item;
-            return (
-              <div
-                className='flex flex-col items-center justify-center mb-16 last:mb-0 lg:mb-0'
-                key={index}
-              >
-                <img className='mb-6 w-16' src={icon} alt='' />
-                <h4 className='text-2xl mb-2 font-primary font-bold text-[#D9AB79]'>
-                  {title}
-                </h4>
-                <p className='max-w-[332px] lg:max-w-[350px]'>{description}</p>
-              </div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );

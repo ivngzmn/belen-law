@@ -103,38 +103,26 @@ export const skills = [
   {
     icon: Skill1,
     title: 'Immigration',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.',
   },
   {
     icon: Skill2,
     title: 'Municipal Court Matters',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.',
   },
   {
     icon: Skill3,
     title: 'Removal Proceedings',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.',
   },
   {
     icon: Skill4,
     title: 'Estate Planning',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.',
   },
   {
     icon: Skill5,
     title: 'Family Visa Petitions',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.',
   },
   {
     icon: Skill6,
     title: 'Family Law',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.',
   },
 ];
 
