@@ -58,9 +58,12 @@ const Team = () => {
               <div className='text-center lg:text-left mb-12' key={index}>
                 <img className='mx-auto lg:mx-0' src={image} alt='' />
                 <p className='text-sm font-bold text-[#D9AB79] my-6 text-left lg:pl-0 pl-20'>
-                  Read full Article
-                  <a href='https://issuu.com/sandiegoattorneyjournal/docs/aj-oc_feb21_v180_fullissue_digital'>
-                    San Diego Attorney Journal
+                  Read full Article {''}
+                  <a
+                    className='underline text-primary hover:text-accent-hover'
+                    href='https://issuu.com/sandiegoattorneyjournal/docs/aj-oc_feb21_v180_fullissue_digital'
+                  >
+                    San Diego Attorney Journal.
                   </a>
                 </p>
                 <h4 className='text-2xl mb-2 font-primary font-bold'>{name}</h4>
