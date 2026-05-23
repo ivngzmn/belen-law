@@ -23,11 +23,5 @@ const { eyebrow, title, intro } = Astro.props;
     {intro && (
       <p style="margin-top:22px;font-size:clamp(17px,1.4vw,20px);color:var(--ink-soft);max-width:64ch;line-height:1.55;">{intro}</p>
     )}
-    <!-- Pathway line -->
-    <div style="margin-top:36px;color:var(--accent);opacity:.6;">
-      <svg width="220" height="28" viewBox="0 0 280 64" fill="none" aria-hidden="true">
-        <path d="M2 50 C 60 50, 80 14, 140 14 C 200 14, 220 50, 278 50" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-      </svg>
-    </div>
   </div>
 </section>

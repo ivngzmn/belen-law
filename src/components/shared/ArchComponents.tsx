@@ -65,24 +65,77 @@ export function ArchBackdrop({ count = 3, opacity = 0.07, color = 'var(--primary
 
 // ── ServiceIcon ────────────────────────────────────────────────────────────────
 export function ServiceIcon({ kind, size = 28 }: { kind: string; size?: number }) {
-  const sw = 1.4;
+  const sw = 1.45;
   const props: SVGProps<SVGSVGElement> = { width: size, height: size, viewBox: '0 0 32 32', fill: 'none', stroke: 'currentColor', strokeWidth: sw, strokeLinecap: 'round', strokeLinejoin: 'round' };
-  const arch = <path d="M5 28 L5 16 A11 11 0 0 1 27 16 L27 28" stroke="currentColor" strokeWidth={sw} fill="none" />;
 
   switch (kind) {
     case 'immigration':
-      return <svg {...props}>{arch}<rect x="11" y="10" width="10" height="12" rx="1" /><path d="M13 13H19M13 16H19M11 25C14 25 18 21 21 25" /></svg>;
+      // Passport: rounded rect + photo circle + text lines
+      return (
+        <svg {...props}>
+          <rect x="8" y="4" width="16" height="21" rx="2" />
+          <circle cx="16" cy="13" r="4" />
+          <line x1="10" y1="20" x2="22" y2="20" />
+          <line x1="10" y1="23" x2="18" y2="23" />
+        </svg>
+      );
     case 'humanitarian':
-      return <svg {...props}>{arch}<path d="M16 23C11 20 9 17 9 14c0-2 2-3 3-3s2 1 4 3c2-2 3-3 4-3s3 1 3 3c0 3-2 6-7 9Z" /></svg>;
+      // Heart: compassion / survivors
+      return (
+        <svg {...props}>
+          <path d="M16 27C10 23 6 18 6 13c0-3.3 2.7-5.5 5.5-5.5 1.8 0 3.5 1 4.5 2.8 1-1.8 2.7-2.8 4.5-2.8C23.3 7.5 26 9.7 26 13c0 5-4 10-10 14z" />
+        </svg>
+      );
     case 'removal':
-      return <svg {...props}>{arch}<path d="M16 23C11 20 9 17 9 14V10l7-2 7 2v4c0 3-2 6-7 9Z" /><path d="M13 14V18M16 14V18M19 14V18" /></svg>;
+      // Courthouse columns: court / legal proceedings
+      return (
+        <svg {...props}>
+          <path d="M4 11L16 4l12 7" />
+          <rect x="7" y="11" width="3.5" height="14" />
+          <rect x="14.25" y="11" width="3.5" height="14" />
+          <rect x="21.5" y="11" width="3.5" height="14" />
+          <line x1="4" y1="25" x2="28" y2="25" />
+          <line x1="3" y1="28" x2="29" y2="28" />
+        </svg>
+      );
     case 'family':
-      return <svg {...props}>{arch}<circle cx="13" cy="14" r="2" /><circle cx="19" cy="14" r="2" /><path d="M9 24c0-3 2-5 4-5s4 2 4 5M15 24c0-3 2-5 4-5s4 2 4 5" /></svg>;
+      // Two figures: adult + child side by side
+      return (
+        <svg {...props}>
+          <circle cx="11" cy="9" r="3.5" />
+          <path d="M4 28c0-5.5 3-8.5 7-8.5s7 3 7 8.5" />
+          <circle cx="22.5" cy="11.5" r="2.5" />
+          <path d="M17 28c0-4 2-6.5 5.5-6.5s5.5 2.5 5.5 6.5" />
+        </svg>
+      );
     case 'consular':
-      return <svg {...props}>{arch}<rect x="11" y="10" width="10" height="13" rx="1" /><circle cx="16" cy="15" r="2" /><path d="M13 19H19M9 28C13 26 19 26 23 28" strokeDasharray="1 2" /></svg>;
+      // Globe: overseas / international process
+      return (
+        <svg {...props}>
+          <circle cx="16" cy="16" r="11" />
+          <line x1="5" y1="16" x2="27" y2="16" />
+          <path d="M16 5c-4 3-6 6.5-6 11s2 8 6 11" />
+          <path d="M16 5c4 3 6 6.5 6 11s-2 8-6 11" />
+          <line x1="9" y1="10" x2="23" y2="10" />
+          <line x1="9" y1="22" x2="23" y2="22" />
+        </svg>
+      );
     case 'estate':
-      return <svg {...props}><path d="M5 16L16 7l11 9M8 14v11h16V14M13 25v-6a3 3 0 0 1 6 0v6" /></svg>;
+      // House: home / family estate
+      return (
+        <svg {...props}>
+          <path d="M3 17L16 6l13 11" />
+          <path d="M6 15v13h20V15" />
+          <rect x="13" y="20" width="6" height="8" rx="1" />
+          <rect x="9" y="16" width="5" height="4" rx="1" />
+          <rect x="18" y="16" width="5" height="4" rx="1" />
+        </svg>
+      );
     default:
-      return <svg {...props}>{arch}</svg>;
+      return (
+        <svg {...props}>
+          <path d="M5 28 L5 16 A11 11 0 0 1 27 16 L27 28" />
+        </svg>
+      );
   }
 }

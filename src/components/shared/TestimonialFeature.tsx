@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { ArchMark } from './ArchComponents';
 
 const TESTIMONIALS = [
   {
@@ -37,9 +36,6 @@ export default function TestimonialFeature() {
     <section className="section" style={{ textAlign: 'center' }}>
       <div className="container" style={{ maxWidth: 980 }}>
         <div className="eyebrow center" style={{ justifyContent: 'center' }}>Client voices</div>
-        <div style={{ marginTop: 24, color: 'var(--accent)', display: 'flex', justifyContent: 'center' }}>
-          <ArchMark size={40} stroke={1.2} />
-        </div>
         <blockquote
           key={idx}
           style={{
