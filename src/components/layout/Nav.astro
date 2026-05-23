@@ -95,10 +95,18 @@ const current = Astro.url.pathname;
 </header>
 
 <style>
+  /* Mobile breakpoint — show burger, hide desktop nav */
   @media (max-width: 920px) {
     .desktop-nav { display: none !important; }
     .burger-btn  { display: inline-flex !important; }
   }
+
+  /* Desktop guard — drawer and scrim must never appear above the breakpoint */
+  @media (min-width: 921px) {
+    #nav-drawer { display: none !important; }
+    #nav-scrim  { display: none !important; }
+  }
+
   @media (max-width: 600px) { .hide-xs { display: none; } }
 </style>
 
@@ -122,7 +130,10 @@ const current = Astro.url.pathname;
   const scrim = document.getElementById('nav-scrim')!;
   const drawer = document.getElementById('nav-drawer')!;
 
+  const MOBILE_BP = 920;
+
   function openDrawer() {
+    if (window.innerWidth > MOBILE_BP) return; // never open on desktop
     drawer.style.transform = 'translateX(0)';
     drawer.setAttribute('aria-hidden', 'false');
     scrim.classList.add('open');
@@ -136,6 +147,11 @@ const current = Astro.url.pathname;
     open.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
+
+  // Also close and restore body scroll if viewport is resized to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > MOBILE_BP) closeDrawer();
+  }, { passive: true });
 
   open.addEventListener('click', openDrawer);
   close.addEventListener('click', closeDrawer);
