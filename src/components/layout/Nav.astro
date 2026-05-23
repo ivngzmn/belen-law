@@ -66,33 +66,33 @@ const current = Astro.url.pathname;
       <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
   </div>
-
-  <!-- Mobile drawer overlay -->
-  <div id="nav-scrim" class="scrim" aria-hidden="true"></div>
-
-  <!-- Mobile drawer -->
-  <aside id="nav-drawer" aria-label="Mobile navigation" aria-hidden="true" style="position:fixed;top:0;right:0;bottom:0;width:min(360px,90vw);background:var(--bg);z-index:95;transform:translateX(102%);transition:transform .3s cubic-bezier(.2,.7,.2,1);box-shadow:-30px 0 80px -40px rgba(31,41,51,.35);padding:24px;display:flex;flex-direction:column;gap:20px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;">
-      <a href="/" style="display:inline-flex;align-items:center;gap:12px;">
-        <img src="/img/brand-mark-transparent.png" alt="" aria-hidden="true" style="height:44px;width:auto;" />
-        <span style="font-family:var(--font-display);font-size:18px;font-weight:500;">Belen Gomez</span>
-      </a>
-      <button id="nav-close" aria-label="Close menu" style="background:transparent;border:none;padding:8px;">
-        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 3l14 14M17 3L3 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-    <nav style="display:flex;flex-direction:column;gap:4px;margin-top:12px;">
-      {links.map(l => (
-        <a href={l.href} style="font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--ink);padding:10px 0;border-bottom:1px solid var(--line-soft);">{l.label}</a>
-      ))}
-    </nav>
-    <a class="btn btn-primary" href="/contact" style="margin-top:auto;">Schedule Consultation</a>
-    <div style="font-size:14px;color:var(--ink-soft);">
-      <div>951-299-0114</div>
-      <div style="margin-top:4px;">Mon–Thu 9:30am–5pm · Fri 9:30am–2pm</div>
-    </div>
-  </aside>
 </header>
+
+<!-- Mobile drawer overlay — outside <header> so backdrop-filter doesn't create a new containing block -->
+<div id="nav-scrim" class="scrim" aria-hidden="true"></div>
+
+<!-- Mobile drawer — outside <header> so position:fixed uses the viewport, not the header -->
+<aside id="nav-drawer" aria-label="Mobile navigation" aria-hidden="true" style="position:fixed;top:0;right:0;bottom:0;width:min(360px,90vw);background:var(--bg);z-index:95;transform:translateX(102%);transition:transform .3s cubic-bezier(.2,.7,.2,1);box-shadow:-30px 0 80px -40px rgba(31,41,51,.35);padding:24px;display:flex;flex-direction:column;gap:20px;">
+  <div style="display:flex;align-items:center;justify-content:space-between;">
+    <a href="/" style="display:inline-flex;align-items:center;gap:12px;">
+      <img src="/img/brand-mark-transparent.png" alt="" aria-hidden="true" style="height:44px;width:auto;" />
+      <span style="font-family:var(--font-display);font-size:18px;font-weight:500;">Belen Gomez</span>
+    </a>
+    <button id="nav-close" aria-label="Close menu" style="background:transparent;border:none;padding:8px;">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 3l14 14M17 3L3 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav style="display:flex;flex-direction:column;gap:4px;margin-top:12px;">
+    {links.map(l => (
+      <a href={l.href} style="font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--ink);padding:10px 0;border-bottom:1px solid var(--line-soft);">{l.label}</a>
+    ))}
+  </nav>
+  <a class="btn btn-primary" href="/contact" style="margin-top:auto;">Schedule Consultation</a>
+  <div style="font-size:14px;color:var(--ink-soft);">
+    <div>951-299-0114</div>
+    <div style="margin-top:4px;">Mon–Thu 9:30am–5pm · Fri 9:30am–2pm</div>
+  </div>
+</aside>
 
 <style>
   /* Mobile breakpoint — show burger, hide desktop nav */
