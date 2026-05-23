@@ -168,7 +168,8 @@ const others = allServices.filter((s) => s.fields.slug !== f.slug).slice(0, 3);
 
 <style>
   @media (max-width: 820px) {
-    .container > div[style*="grid-template-columns:1.1fr 1fr"] { grid-template-columns: 1fr !important; }
+    /* Detail section: container IS the grid */
+    .container[style*="grid-template-columns:1.1fr 1fr"] { grid-template-columns: 1fr !important; }
     .other-grid { grid-template-columns: 1fr 1fr !important; }
   }
   @media (max-width: 520px) {

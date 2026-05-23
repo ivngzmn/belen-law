@@ -90,7 +90,7 @@ const WHY = [
       })}
     </svg>
 
-    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center;">
+    <div class="container hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center;">
 
       <!-- Left: copy -->
       <div style="animation:pageIn .6s ease both;">
@@ -111,10 +111,9 @@ const WHY = [
             951-299-0114
           </a>
         </div>
-        <div style="margin-top:32px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="margin-top:32px;display:flex;gap:10px;flex-wrap:wrap;">
           {['Licensed in California', 'Bilingual EN / ES', 'Riverside County'].map((t) => (
-            <span style="font-size:13px;letter-spacing:.08em;color:var(--ink-soft);display:flex;align-items:center;gap:7px;">
-              <svg width="14" height="14" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5l3 3 5-6" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);background:rgba(18,60,53,.08);border:1px solid rgba(18,60,53,.18);border-radius:var(--r-pill);padding:7px 14px;">
               {t}
             </span>
           ))}
@@ -122,7 +121,7 @@ const WHY = [
       </div>
 
       <!-- Right: arch-framed portrait -->
-      <div style="display:flex;justify-content:center;animation:pageIn .6s .15s ease both;opacity:0;animation-fill-mode:both;">
+      <div class="hero-portrait" style="display:flex;justify-content:center;animation:pageIn .6s .15s ease both;opacity:0;animation-fill-mode:both;">
         <div style="position:relative;width:clamp(280px,38vw,440px);">
           <!-- Arch frame — behind the photo -->
           <svg viewBox="0 0 300 340" fill="none" aria-hidden="true"
@@ -170,25 +169,26 @@ const WHY = [
   </section>
 
   <!-- ── About preview ─────────────────────────────────────────────────────── -->
-  <section class="section">
-    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center;">
+  <section style="padding:clamp(80px,12vw,140px) 0;">
+    <div class="container about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,96px);align-items:center;">
       <div>
         <div class="eyebrow">About the firm</div>
-        <h2 class="display" style="font-size:clamp(32px,4vw,52px);margin-top:18px;max-width:18ch;">
+        <h2 class="display" style="font-size:clamp(32px,4vw,54px);margin-top:18px;max-width:18ch;line-height:1.1;">
           An attorney who understands both sides of the border.
         </h2>
-        <p style="margin-top:22px;color:var(--ink-soft);font-size:17px;line-height:1.65;max-width:54ch;">
+        <p style="margin-top:28px;color:var(--ink-soft);font-size:17px;line-height:1.7;max-width:54ch;">
           Belen Gomez is a bilingual immigration and estate planning attorney based in Riverside, CA. She founded her practice on one principle: every client deserves honest guidance and real representation — regardless of where they come from.
         </p>
-        <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.65;max-width:54ch;">
+        <p style="margin-top:18px;color:var(--ink-soft);font-size:17px;line-height:1.7;max-width:54ch;">
           Fluent in English and Spanish, she works directly with each client to understand their full situation — not just the paperwork, but the people behind it.
         </p>
-        <a class="btn btn-ghost" href="/about" style="margin-top:28px;padding:14px 0;font-size:15px;color:var(--primary);display:inline-flex;align-items:center;gap:8px;">
-          Learn about Belen →
+        <a href="/about" style="margin-top:36px;display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--primary);text-decoration:none;border-bottom:1.5px solid rgba(18,60,53,.25);padding-bottom:2px;transition:border-color .2s;" class="about-link">
+          Learn about Belen
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
-      <!-- Quote card -->
-      <div style="background:var(--primary);border-radius:var(--r-lg);padding:clamp(32px,4vw,52px);color:#f4ece0;position:relative;overflow:hidden;">
+      <!-- Quote card — taller, more generous padding -->
+      <div style="background:var(--primary);border-radius:var(--r-lg);padding:clamp(44px,6vw,72px);color:#f4ece0;position:relative;overflow:hidden;">
         <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true"
           style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.08;">
           {[0,1,2].map((i) => {
@@ -200,13 +200,13 @@ const WHY = [
           })}
         </svg>
         <div style="position:relative;">
-          <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true" style="color:var(--accent);opacity:.7;margin-bottom:20px;">
+          <svg width="40" height="32" viewBox="0 0 36 28" fill="none" aria-hidden="true" style="color:var(--accent);opacity:.6;margin-bottom:28px;">
             <path d="M0 28V16C0 7.163 5.82 1.48 17.46 0l1.54 3.08C12.56 4.64 9.36 7.74 8.76 12H16V28H0ZM20 28V16C20 7.163 25.82 1.48 37.46 0l1.54 3.08C32.56 4.64 29.36 7.74 28.76 12H36V28H20Z" fill="currentColor"/>
           </svg>
-          <blockquote style="font-family:var(--font-display);font-size:clamp(18px,2.2vw,24px);line-height:1.4;font-style:italic;margin:0;">
+          <blockquote style="font-family:var(--font-display);font-size:clamp(20px,2.6vw,28px);line-height:1.4;font-style:italic;margin:0;">
             "After years of feeling invisible in this system, she made us feel heard — and then she got results."
           </blockquote>
-          <div style="margin-top:24px;font-size:13px;letter-spacing:.08em;opacity:.7;text-transform:uppercase;font-weight:600;">Former client · Riverside, CA</div>
+          <div style="margin-top:32px;font-size:13px;letter-spacing:.1em;opacity:.6;text-transform:uppercase;font-weight:600;">Former client · Riverside, CA</div>
         </div>
       </div>
     </div>
@@ -224,7 +224,7 @@ const WHY = [
       </div>
       <div style="margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="svc-overview-grid">
         {services.map((s) => (
-          <a href={`/services/${s.fields.slug}`} style="display:block;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:28px;text-decoration:none;transition:border-color .2s,box-shadow .2s;" class="svc-card">
+          <a href={`/services/${s.fields.slug}`} style="display:block;background:var(--card);border:1px solid var(--line-soft);border-top:3px solid var(--accent);border-radius:var(--r-card);padding:28px;text-decoration:none;transition:border-color .2s,box-shadow .2s;" class="svc-card">
             <div style="width:48px;height:56px;border-radius:999px 999px 8px 8px / 55% 55% 8px 8px;background:rgba(200,164,93,.15);border:1px solid rgba(200,164,93,.25);color:var(--primary);display:grid;place-items:center;">
               <ServiceIcon kind={s.fields.iconKey} size={24} />
             </div>
@@ -308,15 +308,26 @@ const WHY = [
 </BaseLayout>
 
 <style>
+  /* ── Tablet (≤860px): collapse dense sections, keep hero 2-col ── */
   @media (max-width: 860px) {
+    /* About preview: quote card → single col */
+    .about-grid { grid-template-columns: 1fr !important; }
+    /* Why section outer grid (child of .container) */
     section > .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
-    .svc-overview-grid { grid-template-columns: 1fr 1fr !important; }
+    /* Trust bar + media strip → single col */
     .media-strip-grid { grid-template-columns: 1fr !important; }
+    .svc-overview-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  /* ── Mobile (≤640px): collapse hero + portrait ── */
+  @media (max-width: 640px) {
+    .hero-grid { grid-template-columns: 1fr !important; }
+    .hero-portrait { display: none !important; }
   }
   @media (max-width: 520px) {
     .svc-overview-grid { grid-template-columns: 1fr !important; }
   }
   .svc-card:hover { border-color: var(--primary) !important; box-shadow: 0 12px 32px -16px rgba(18,60,53,.2); }
   .call-btn:hover { background: var(--primary); color: #fff !important; }
+  .about-link:hover { border-color: var(--primary); }
   @keyframes pageIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 </style>

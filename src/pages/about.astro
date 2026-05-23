@@ -163,8 +163,11 @@ const CREDENTIALS = [
 
 <style>
   @media (max-width: 860px) {
-    section .container > div[style*="grid-template-columns:1fr 1.6fr"],
-    section .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    /* Bio split (container IS the grid) */
+    section .container[style*="grid-template-columns:1fr 1.6fr"] { grid-template-columns: 1fr !important; }
+    /* Language & community (container IS the grid) */
+    section .container[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    /* Unstick portrait column when bio grid stacks */
     section .container > div[style*="position:sticky"] { position: static !important; }
   }
 </style>

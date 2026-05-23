@@ -39,7 +39,7 @@ const schema = {
 
   <!-- ── Contact body ──────────────────────────────────────────────────────── -->
   <section class="section" style="padding-top:clamp(36px,5vw,64px);">
-    <div class="container" style="display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(36px,6vw,80px);align-items:start;" class="contact-grid">
+    <div class="container contact-grid" style="display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(36px,6vw,80px);align-items:start;">
 
       <!-- Left: info cards + what to expect -->
       <div style="display:grid;gap:16px;">
@@ -240,7 +240,8 @@ form?.addEventListener('submit', async (e) => {
 
 <style>
   @media (max-width: 860px) {
-    .container > div[style*="grid-template-columns:1fr 1.4fr"] { grid-template-columns: 1fr !important; }
+    /* Contact body: container IS the grid */
+    .contact-grid { grid-template-columns: 1fr !important; }
   }
   @media (max-width: 480px) {
     .form-row { grid-template-columns: 1fr !important; }
