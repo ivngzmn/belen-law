@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import PageHeader from '../components/shared/PageHeader.astro';
+import FinalCTA from '../components/shared/FinalCTA.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Attorney',
+  name: 'Belen Gomez',
+  jobTitle: 'Immigration & Estate Planning Attorney',
+  url: 'https://www.belengomezlaw.com/about',
+  image: 'https://www.belengomezlaw.com/img/portrait.webp',
+  worksFor: { '@type': 'LegalService', name: 'Belen Gomez Law' },
+  knowsLanguage: ['en', 'es'],
+  areaServed: { '@type': 'State', name: 'California' },
+};
+
+const TIMELINE = [
+  { year: '2010', heading: 'Law degree', body: 'Earned her J.D. with a focus on immigration and public interest law.' },
+  { year: '2011', heading: 'California Bar', body: 'Admitted to practice in California. Started at an immigration nonprofit serving the Inland Empire.' },
+  { year: '2014', heading: 'Private practice begins', body: 'Opened Belen Gomez Law in Riverside, building a practice focused on individual and family immigration matters.' },
+  { year: '2017', heading: 'AILA membership', body: 'Joined the American Immigration Lawyers Association, deepening ties with the national immigration law community.' },
+  { year: '2019', heading: 'Estate planning added', body: 'Expanded the practice to include estate planning — especially for mixed-status families.' },
+  { year: '2021', heading: 'Community recognition', body: 'Featured in the San Diego Attorney Journal for work in the Southern California immigrant community.' },
+];
+
+const CREDENTIALS = [
+  'California State Bar',
+  'American Immigration Lawyers Association (AILA)',
+  'Inland Empire Bar Association',
+  'Southern California Legal Aid Network',
+  'National Immigration Law Center — member',
+];
+---
+
+<BaseLayout
+  title="About Belen Gomez — Immigration Attorney, Riverside CA"
+  description="Learn about Belen Gomez, a bilingual immigration and estate planning attorney in Riverside, CA — her background, credentials, and commitment to her clients."
+  schema={schema}
+>
+
+  <PageHeader
+    eyebrow="About the attorney"
+    title="A practice built on <em>trust</em> and results."
+    intro="Belen Gomez is a bilingual immigration and estate planning attorney based in Riverside, CA. Since 2014, her practice has stood for honest guidance, careful preparation, and real representation."
+  />
+
+  <!-- ── Bio split ─────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(40px,7vw,96px);align-items:start;">
+
+      <!-- Sticky portrait column -->
+      <div style="position:sticky;top:120px;">
+        <div style="border-radius:9999px 9999px 18px 18px / 50% 50% 18px 18px;overflow:hidden;background:var(--muted);">
+          <img src="/img/portrait.webp" alt="Attorney Belen Gomez" style="width:100%;height:auto;display:block;"/>
+        </div>
+        <!-- Credentials card -->
+        <div style="background:var(--primary);border-radius:var(--r-card);padding:24px;margin-top:20px;color:#f4ece0;">
+          <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--accent-soft);margin-bottom:14px;">Credentials & Memberships</div>
+          <ul style="list-style:none;margin:0;padding:0;display:grid;gap:10px;">
+            {CREDENTIALS.map((c) => (
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;opacity:.9;">
+                <svg width="14" height="14" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="flex:none;margin-top:3px;"><path d="M1 5l3 3 5-6" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bio blocks -->
+      <div>
+        <div style="display:grid;gap:28px;">
+          <div>
+            <h2 class="display" style="font-size:clamp(26px,3vw,36px);">From the Inland Empire, for the Inland Empire.</h2>
+            <p style="margin-top:18px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
+              Belen Gomez grew up in Riverside County and has spent her entire legal career serving the community she knows best. She launched her practice in 2014 with a single focus: helping immigrant families navigate a complex and often intimidating system with clarity and confidence.
+            </p>
+            <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
+              Fluent in both English and Spanish, she conducts every consultation in the client's language — not through an interpreter, but directly. That directness shapes everything about how the practice operates.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-alt);border-radius:var(--r-card);padding:32px;border-left:3px solid var(--accent);">
+            <blockquote style="font-family:var(--font-display);font-size:clamp(19px,2vw,24px);line-height:1.4;font-style:italic;color:var(--ink);margin:0;">
+              "Immigration law is not just about forms and filings. It is about people making the most consequential decisions of their lives. I take that seriously."
+            </blockquote>
+            <div style="margin-top:18px;font-size:13px;color:var(--ink-soft);">— Belen Gomez</div>
+          </div>
+
+          <div>
+            <h2 class="display" style="font-size:clamp(22px,2.5vw,30px);">A full-service practice for mixed-status families.</h2>
+            <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
+              In 2019, Belen expanded her practice to include estate planning — a natural extension of her immigration work. Mixed-status families face unique challenges when planning for the future, and she believes every family deserves clear, coordinated guidance across both areas.
+            </p>
+            <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
+              Whether she is preparing a family-based petition, defending a client in removal proceedings, or drafting a trust for a family with complex circumstances, her approach is the same: thorough preparation, honest communication, and a focus on results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Timeline ──────────────────────────────────────────────────────────── -->
+  <section class="section bg-alt">
+    <div class="container" style="max-width:860px;">
+      <div class="eyebrow center" style="text-align:center;">Career timeline</div>
+      <h2 class="display" style="font-size:clamp(28px,3.5vw,44px);margin-top:16px;text-align:center;">Over a decade of focused practice.</h2>
+      <div style="margin-top:52px;position:relative;">
+        <!-- Vertical line -->
+        <div style="position:absolute;left:80px;top:0;bottom:0;width:1px;background:var(--line);"></div>
+        <div style="display:grid;gap:0;">
+          {TIMELINE.map((t, i) => (
+            <div style="display:grid;grid-template-columns:80px auto;gap:0;padding-bottom:36px;">
+              <div style="display:flex;flex-direction:column;align-items:center;">
+                <div style="font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.06em;color:var(--ink-soft);padding-right:20px;padding-top:4px;">{t.year}</div>
+              </div>
+              <div style="padding-left:32px;position:relative;">
+                <div style="position:absolute;left:-5px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-alt);"></div>
+                <h3 style="font-family:var(--font-display);font-size:17px;font-weight:600;">{t.heading}</h3>
+                <p style="margin-top:6px;color:var(--ink-soft);font-size:15px;line-height:1.6;">{t.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Language & community section ──────────────────────────────────────── -->
+  <section class="section">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,72px);align-items:center;">
+      <div>
+        <div class="eyebrow">Language & community</div>
+        <h2 class="display" style="font-size:clamp(28px,3.5vw,44px);margin-top:16px;max-width:18ch;">Conversations in the language that matters most: yours.</h2>
+        <p style="margin-top:20px;color:var(--ink-soft);font-size:17px;line-height:1.65;max-width:52ch;">
+          Belen conducts all consultations and case meetings in English or Spanish — directly, without intermediaries. Many clients come from communities where legal language is a barrier in itself. Her practice removes that barrier.
+        </p>
+        <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.65;max-width:52ch;">
+          She is an active participant in Riverside County's immigrant-serving nonprofit network and regularly speaks at community events on immigration rights and estate planning for families.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        {[
+          { num: '13+', label: 'Years in practice' },
+          { num: 'EN/ES', label: 'Bilingual consultations' },
+          { num: '6', label: 'Practice areas' },
+          { num: 'IE', label: 'Inland Empire rooted' },
+        ].map((s) => (
+          <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:28px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);color:var(--primary);font-style:italic;">{s.num}</div>
+            <div style="margin-top:8px;font-size:13px;color:var(--ink-soft);letter-spacing:.06em;">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA heading="Work with an attorney who knows your community." subtext="Schedule a confidential consultation in English or Spanish. We respond within one business day." />
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 860px) {
+    section .container > div[style*="grid-template-columns:1fr 1.6fr"],
+    section .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    section .container > div[style*="position:sticky"] { position: static !important; }
+  }
+</style>

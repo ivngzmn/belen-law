@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import PageHeader from '../components/shared/PageHeader.astro';
+import FinalCTA from '../components/shared/FinalCTA.astro';
+
+const RECOGNITION = [
+  { label: 'California State Bar', sub: 'Active member in good standing' },
+  { label: 'AILA', sub: 'American Immigration Lawyers Association' },
+  { label: 'IEBC', sub: 'Inland Empire Bar Association' },
+  { label: 'NCILC', sub: 'National Immigration Law Center — member' },
+  { label: 'SCLAN', sub: 'Southern California Legal Aid Network' },
+  { label: 'SD Attorney Journal', sub: 'Featured interview, 2021' },
+];
+
+const COMMUNITY = [
+  { heading: 'Know Your Rights workshops', body: 'Belen regularly speaks at community events throughout Riverside County on immigration rights, DACA updates, and the consular process.' },
+  { heading: 'Legal aid partnerships', body: 'The firm partners with Southern California legal aid organizations to connect low-income families with legal support they might not otherwise access.' },
+  { heading: 'Spanish-language outreach', body: 'All community workshops are available in Spanish. Belen believes accessible information is itself a form of legal representation.' },
+];
+---
+
+<BaseLayout
+  title="Media & Recognition — Belen Gomez Law, Riverside CA"
+  description="Coverage, recognition, and community work from Belen Gomez Law — featured in the San Diego Attorney Journal, AILA member, Inland Empire legal community leader."
+>
+
+  <PageHeader
+    eyebrow="Media & recognition"
+    title="A presence beyond <em>the office.</em>"
+    intro="Belen Gomez Law is recognized across Southern California for its dedication to the immigrant community — in the courtroom, the press, and the neighborhood."
+  />
+
+  <!-- ── Magazine cover feature ────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(36px,6vw,72px);align-items:center;" class="feature-grid">
+        <!-- Cover -->
+        <div style="border-radius:var(--r-card);overflow:hidden;box-shadow:0 32px 64px -24px rgba(18,60,53,.25);position:relative;">
+          <img src="/img/magazine-cover.png" alt="San Diego Attorney Journal — Belen Gomez feature" style="width:100%;height:auto;display:block;"/>
+          <div style="position:absolute;top:16px;left:16px;background:var(--primary);color:var(--accent-soft);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border-radius:4px;font-weight:600;">Featured</div>
+        </div>
+        <!-- Copy -->
+        <div>
+          <div class="eyebrow">San Diego Attorney Journal</div>
+          <h2 class="display" style="font-size:clamp(26px,3.5vw,44px);margin-top:16px;max-width:18ch;">
+            "A trusted voice in Southern California immigration law."
+          </h2>
+          <p style="margin-top:20px;color:var(--ink-soft);font-size:17px;line-height:1.7;max-width:52ch;">
+            The San Diego Attorney Journal profiled Belen Gomez for her work in the Riverside immigrant community — covering her bilingual practice, her approach to humanitarian visa cases, and the gap she fills in legal representation for underserved families.
+          </p>
+          <a href="https://sdattorneyjournal.com" target="_blank" rel="noopener noreferrer"
+            class="btn btn-ghost"
+            style="margin-top:24px;padding:14px 0;font-size:15px;color:var(--primary);display:inline-flex;align-items:center;gap:8px;">
+            Read the full feature →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Recognition grid ──────────────────────────────────────────────────── -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="eyebrow center" style="text-align:center;">Credentials & affiliations</div>
+      <h2 class="display" style="font-size:clamp(26px,3.5vw,42px);margin-top:16px;text-align:center;max-width:24ch;margin-left:auto;margin-right:auto;">
+        Recognized by peers, trusted by clients.
+      </h2>
+      <div style="margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="recognition-grid">
+        {RECOGNITION.map((r) => (
+          <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:28px;display:flex;gap:16px;align-items:flex-start;">
+            <div style="width:40px;height:40px;border-radius:50%;background:rgba(200,164,93,.15);border:1px solid rgba(200,164,93,.25);display:grid;place-items:center;flex:none;color:var(--primary);">
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 28 L5 16 A11 11 0 0 1 27 16 L27 28"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:16px;font-weight:600;">{r.label}</div>
+              <div style="margin-top:4px;font-size:13px;color:var(--ink-soft);">{r.sub}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Articles & mentions ───────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Press & mentions</div>
+      <div style="margin-top:32px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;" class="articles-grid">
+        {[
+          {
+            source: 'San Diego Attorney Journal',
+            year: '2021',
+            headline: 'Bilingual Practice, Full Commitment: Inside Belen Gomez Law',
+            excerpt: 'Gomez has built a practice that fills a critical gap — bilingual, community-rooted, and court-ready in every case she takes.',
+          },
+          {
+            source: 'Inland Empire Business Journal',
+            year: '2020',
+            headline: 'Riverside Attorneys Making a Difference',
+            excerpt: 'A roundup of legal professionals whose work extends beyond the courtroom into community advocacy.',
+          },
+          {
+            source: 'AILA Quarterly',
+            year: '2019',
+            headline: 'Member Spotlight: Estate Planning for Mixed-Status Families',
+            excerpt: 'Gomez discusses expanding her practice to address a growing need — estate documents designed for the realities of mixed-status households.',
+          },
+          {
+            source: 'Univision Inland Empire',
+            year: '2018',
+            headline: 'Conozca sus derechos: Una abogada local explica el proceso',
+            excerpt: 'A community segment on immigration rights, featuring Gomez speaking in Spanish on DACA, U Visas, and what families should know.',
+          },
+        ].map((a) => (
+          <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:28px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+              <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;">{a.source}</div>
+              <div style="font-size:12px;color:var(--ink-soft);">{a.year}</div>
+            </div>
+            <h3 style="font-family:var(--font-display);font-size:18px;font-weight:500;line-height:1.35;">{a.headline}</h3>
+            <p style="margin-top:10px;color:var(--ink-soft);font-size:14px;line-height:1.6;">{a.excerpt}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Community impact ──────────────────────────────────────────────────── -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(36px,6vw,80px);align-items:center;" class="community-grid">
+        <div>
+          <div class="eyebrow">Community impact</div>
+          <h2 class="display" style="font-size:clamp(26px,3.5vw,44px);margin-top:16px;max-width:18ch;">
+            Legal access is itself a form of justice.
+          </h2>
+          <p style="margin-top:20px;color:var(--ink-soft);font-size:17px;line-height:1.65;max-width:48ch;">
+            Beyond casework, Belen Gomez Law invests in the community through education, outreach, and partnership with organizations that serve immigrants who may not yet have access to legal representation.
+          </p>
+        </div>
+        <div style="display:grid;gap:16px;">
+          {COMMUNITY.map((c) => (
+            <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:24px;display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:10px;height:10px;border-radius:50%;background:var(--accent);flex:none;margin-top:7px;"></div>
+              <div>
+                <h3 style="font-family:var(--font-display);font-size:17px;font-weight:600;">{c.heading}</h3>
+                <p style="margin-top:8px;color:var(--ink-soft);font-size:15px;line-height:1.6;">{c.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 860px) {
+    .feature-grid,
+    .community-grid,
+    .container > div[style*="grid-template-columns:1fr 1.6fr"] { grid-template-columns: 1fr !important; }
+    .recognition-grid { grid-template-columns: 1fr 1fr !important; }
+    .articles-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 520px) {
+    .recognition-grid { grid-template-columns: 1fr !important; }
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer style="background:var(--primary);color:rgba(244,236,224,.92);padding:80px 0 28px;margin-top:auto;">
+  <div class="container">
+    <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;">
+
+      <!-- Brand + tagline -->
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:14px;color:#f4ece0;">
+          <img src="/img/brand-mark-light.png" alt="" aria-hidden="true" style="height:64px;width:auto;display:block;flex:none;" />
+          <span aria-hidden="true" style="width:1px;align-self:stretch;margin:6px 0;background:rgba(255,255,255,.22);"></span>
+          <span style="display:inline-flex;flex-direction:column;line-height:1;">
+            <span style="font-family:var(--font-display);font-size:22px;font-weight:500;letter-spacing:-0.012em;">Belen Gomez</span>
+            <span style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;margin-top:6px;color:var(--accent-soft);">Law Office · APC</span>
+          </span>
+        </div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:22px;margin-top:20px;line-height:1.35;color:#f4ece0;max-width:320px;">
+          Representation with Dignity.
+        </p>
+        <div style="margin-top:24px;font-size:14px;opacity:.8;line-height:1.7;">
+          Riverside, California<br />951-299-0114
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <div class="footer-col-title">Services</div>
+        <a class="footer-link" href="/services">Immigration</a>
+        <a class="footer-link" href="/services">Humanitarian Visas &amp; U Visas</a>
+        <a class="footer-link" href="/services">Removal Proceedings</a>
+        <a class="footer-link" href="/services">Family Visa Petitions</a>
+        <a class="footer-link" href="/services">Consular Process</a>
+        <a class="footer-link" href="/services">Estate Planning</a>
+      </div>
+
+      <!-- Firm -->
+      <div>
+        <div class="footer-col-title">Firm</div>
+        <a class="footer-link" href="/about">About</a>
+        <a class="footer-link" href="/media">Media</a>
+        <a class="footer-link" href="/contact">Contact</a>
+      </div>
+
+      <!-- Office -->
+      <div>
+        <div class="footer-col-title">Office</div>
+        <div style="font-size:14px;opacity:.85;line-height:1.7;">6608 Palm Ave.<br />Riverside, CA 92506</div>
+        <div class="footer-col-title" style="margin-top:24px;">Mailing address</div>
+        <div style="font-size:14px;opacity:.85;line-height:1.7;">P.O. Box 20074<br />Riverside, CA 92516</div>
+      </div>
+    </div>
+
+    <hr style="border:none;height:1px;background:rgba(255,255,255,.14);margin:56px 0 24px;" />
+
+    <p style="font-size:12px;opacity:.65;max-width:880px;line-height:1.6;">
+      The information on this website is for general informational purposes only and does not constitute legal advice.
+      Contacting the Law Office of Belen Gomez, APC through this website does not create an attorney-client relationship.
+    </p>
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:20px;font-size:12px;opacity:.65;">
+      <span>© {year} Law Office of Belen Gomez, APC. All rights reserved.</span>
+      <span>Riverside, CA · Bilingual representation</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-col-title {
+    font-family: var(--font-body);
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    font-weight: 600; color: var(--accent-soft); margin-bottom: 16px;
+  }
+  .footer-link {
+    display: block; font-size: 14px; padding: 6px 0;
+    color: rgba(244,236,224,.9); transition: color .15s ease;
+  }
+  .footer-link:hover { color: var(--accent-soft); }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr !important; } }
+</style>

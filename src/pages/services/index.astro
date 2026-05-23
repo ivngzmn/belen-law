@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import PageHeader from '../../components/shared/PageHeader.astro';
+import FinalCTA from '../../components/shared/FinalCTA.astro';
+import ServicesExpand from '../../components/shared/ServicesExpand';
+import { getServices } from '../../lib/contentful';
+
+const services = await getServices();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Belen Gomez Law — Practice Areas',
+  url: 'https://www.belengomezlaw.com/services',
+  itemListElement: services.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: s.fields.title,
+    url: `https://www.belengomezlaw.com/services/${s.fields.slug}`,
+  })),
+};
+
+const PROCESS = [
+  { num: '01', heading: 'Initial consultation', body: 'We review your full situation, answer your questions, and give you an honest assessment of your options.' },
+  { num: '02', heading: 'Case strategy', body: 'We build a plan specific to your record, timeline, and goals — and walk you through it before filing anything.' },
+  { num: '03', heading: 'Preparation & filing', body: 'We gather documents, prepare applications, and submit with complete supporting evidence.' },
+  { num: '04', heading: 'Representation & follow-through', body: 'We stay with you — through USCIS follow-ups, hearings, and everything in between — until the case is resolved.' },
+];
+---
+
+<BaseLayout
+  title="Services — Belen Gomez Law, Riverside CA"
+  description="Immigration and estate planning services from Belen Gomez Law: family petitions, removal defense, U Visas, consular process, and more."
+  schema={schema}
+>
+
+  <PageHeader
+    eyebrow="Practice areas"
+    title="Every case, every family, <em>fully represented.</em>"
+    intro="Six practice areas, one attorney who handles each case directly. Expand any area to learn what we do, who we help, and what questions we hear most."
+  />
+
+  <!-- ── Services expandable grid ──────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <ServicesExpand client:load services={services} />
+    </div>
+  </section>
+
+  <!-- ── Process section ───────────────────────────────────────────────────── -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="eyebrow center" style="text-align:center;">How we work</div>
+      <h2 class="display" style="font-size:clamp(28px,3.5vw,46px);margin-top:16px;text-align:center;max-width:22ch;margin-left:auto;margin-right:auto;">
+        A clear path from first call to final resolution.
+      </h2>
+
+      <!-- Pathway ornament -->
+      <div style="margin-top:16px;color:var(--accent);opacity:.5;display:flex;justify-content:center;">
+        <svg width="320" height="32" viewBox="0 0 320 64" fill="none" aria-hidden="true">
+          <path d="M2 50 C 70 50, 100 14, 160 14 C 220 14, 250 50, 318 50" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div style="margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;" class="process-grid">
+        <!-- Connector line -->
+        <div style="position:absolute;top:28px;left:calc(12.5% + 12px);right:calc(12.5% + 12px);height:1px;background:var(--line);z-index:0;" class="process-line"></div>
+
+        {PROCESS.map((p) => (
+          <div style="position:relative;z-index:1;background:var(--bg-alt);padding-top:4px;">
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--primary);color:#f4ece0;display:grid;place-items:center;font-family:ui-monospace,monospace;font-size:14px;letter-spacing:.06em;margin-bottom:20px;">
+              {p.num}
+            </div>
+            <h3 style="font-family:var(--font-display);font-size:17px;font-weight:600;">{p.heading}</h3>
+            <p style="margin-top:10px;color:var(--ink-soft);font-size:15px;line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 820px) {
+    .process-grid { grid-template-columns: 1fr 1fr !important; }
+    .process-line { display: none; }
+  }
+  @media (max-width: 520px) {
+    .process-grid { grid-template-columns: 1fr !important; }
+  }
+</style>

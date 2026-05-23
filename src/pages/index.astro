@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import FinalCTA from '../components/shared/FinalCTA.astro';
+import TestimonialFeature from '../components/shared/TestimonialFeature';
+import { FALLBACK_SERVICES } from '../lib/contentful';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LegalService',
+  name: 'Belen Gomez Law',
+  url: 'https://www.belengomezlaw.com',
+  logo: 'https://www.belengomezlaw.com/img/brand-mark-transparent.png',
+  telephone: '+19512990114',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Riverside',
+    addressRegion: 'CA',
+    addressCountry: 'US',
+  },
+  openingHours: ['Mo-Th 09:30-17:00', 'Fr 09:30-14:00'],
+  priceRange: '$$',
+  areaServed: { '@type': 'State', name: 'California' },
+  knowsLanguage: ['en', 'es'],
+};
+
+const services = FALLBACK_SERVICES;
+
+const WHY = [
+  { icon: '⚖', heading: 'Bilingual, bicultural', body: 'Every conversation — English or Spanish — happens in your language, on your terms.' },
+  { icon: '🗓', heading: 'Transparent timelines', body: 'We give you real expectations, not vague hope. And we keep you updated at every stage.' },
+  { icon: '🤝', heading: 'Whole-family focus', body: 'Immigration affects everyone. We look at the full picture before recommending a path.' },
+  { icon: '🏛', heading: 'Court-ready representation', body: 'From USCIS filings to immigration court, we prepare as though every case will be litigated.' },
+];
+---
+
+<BaseLayout
+  title="Belen Gomez Law — Immigration &amp; Estate Planning Attorney, Riverside CA"
+  description="Bilingual immigration and estate planning law firm in Riverside, CA. Serving families with visas, removal defense, U Visas, family petitions, and more."
+  schema={schema}
+>
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
+  <section style="position:relative;overflow:hidden;padding:clamp(64px,10vw,120px) 0 clamp(56px,8vw,96px);">
+    <!-- Arch backdrop -->
+    <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true"
+      style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.05;color:var(--primary);">
+      {[0,1,2,3].map((i) => {
+        const w = 200 + i * 110;
+        const rx = w / 2;
+        const x = 300 - rx;
+        const y = 400 - (180 + i * 90);
+        return <path d={`M${x} 400 L${x} ${y+rx} A${rx} ${rx} 0 0 1 ${x+w} ${y+rx} L${x+w} 400`} stroke="currentColor" stroke-width="1" fill="none"/>;
+      })}
+    </svg>
+
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center;">
+
+      <!-- Left: copy -->
+      <div style="animation:pageIn .6s ease both;">
+        <div class="eyebrow">Bilingual · Experienced · Riverside, CA</div>
+        <h1 class="display" style="font-size:clamp(40px,5.5vw,72px);margin-top:20px;max-width:14ch;">
+          Immigration law<br/>
+          <em style="color:var(--accent);font-style:italic;">for real families.</em>
+        </h1>
+        <p style="margin-top:24px;font-size:clamp(17px,1.4vw,20px);color:var(--ink-soft);max-width:52ch;line-height:1.6;">
+          Belen Gomez guides immigrants and families through the U.S. immigration system — in English and Spanish — with clear answers, steady representation, and care for the whole family.
+        </p>
+        <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+          <a class="btn btn-primary" href="/contact" style="padding:16px 28px;font-size:16px;">Schedule a consultation</a>
+          <a class="btn btn-ghost" href="tel:9512990114" style="padding:16px 0;font-size:16px;color:var(--primary);">951-299-0114 →</a>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:24px;flex-wrap:wrap;">
+          {['Licensed in California', 'Bilingual EN / ES', 'Riverside County'].map((t) => (
+            <span style="font-size:13px;letter-spacing:.08em;color:var(--ink-soft);display:flex;align-items:center;gap:7px;">
+              <svg width="14" height="14" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5l3 3 5-6" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: arch-framed portrait -->
+      <div style="display:flex;justify-content:center;animation:pageIn .6s .15s ease both;opacity:0;animation-fill-mode:both;">
+        <div style="position:relative;width:clamp(280px,38vw,440px);">
+          <!-- Arch frame -->
+          <svg viewBox="0 0 300 340" fill="none" aria-hidden="true"
+            style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;">
+            <path d="M20 330 L20 160 A130 130 0 0 1 280 160 L280 330" stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" opacity=".7"/>
+            <path d="M44 330 L44 170 A106 106 0 0 1 256 170 L256 330" stroke="var(--accent)" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round" opacity=".4"/>
+            <line x1="4" y1="330" x2="296" y2="330" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <div style="border-radius:9999px 9999px 18px 18px / 50% 50% 18px 18px;overflow:hidden;background:var(--muted);">
+            <img src="/img/portrait.webp" alt="Attorney Belen Gomez" style="width:100%;height:auto;display:block;object-fit:cover;"/>
+          </div>
+          <!-- Gold accent dot -->
+          <div style="position:absolute;bottom:24px;right:-12px;width:56px;height:56px;border-radius:50%;background:var(--primary);display:grid;place-items:center;border:3px solid var(--bg);z-index:3;">
+            <svg width="20" height="32" viewBox="0 0 20 32" fill="none" aria-hidden="true" color="var(--accent)">
+              <path d="M10 1 C 7 5, 5 8, 5 11 C 5 14, 7 16, 10 16 C 13 16, 15 14, 15 11 C 15 8, 13 5, 10 1 Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M6 16 L4 19 L16 19 L14 16" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <line x1="10" y1="19" x2="10" y2="30" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="7" y1="30" x2="13" y2="30" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trust bar ─────────────────────────────────────────────────────────── -->
+  <section style="background:var(--primary);padding:clamp(20px,3vw,28px) 0;">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,48px);justify-content:center;align-items:center;">
+      {['California State Bar Member', 'American Immigration Lawyers Association', 'Southern California Legal Aid Network', 'Featured · San Diego Attorney Journal'].map((t) => (
+        <span style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,236,224,.75);font-weight:500;">{t}</span>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── About preview ─────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center;">
+      <div>
+        <div class="eyebrow">About the firm</div>
+        <h2 class="display" style="font-size:clamp(32px,4vw,52px);margin-top:18px;max-width:18ch;">
+          An attorney who understands both sides of the border.
+        </h2>
+        <p style="margin-top:22px;color:var(--ink-soft);font-size:17px;line-height:1.65;max-width:54ch;">
+          Belen Gomez is a bilingual immigration and estate planning attorney based in Riverside, CA. She founded her practice on one principle: every client deserves honest guidance and real representation — regardless of where they come from.
+        </p>
+        <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.65;max-width:54ch;">
+          Fluent in English and Spanish, she works directly with each client to understand their full situation — not just the paperwork, but the people behind it.
+        </p>
+        <a class="btn btn-ghost" href="/about" style="margin-top:28px;padding:14px 0;font-size:15px;color:var(--primary);display:inline-flex;align-items:center;gap:8px;">
+          Learn about Belen →
+        </a>
+      </div>
+      <!-- Quote card -->
+      <div style="background:var(--primary);border-radius:var(--r-lg);padding:clamp(32px,4vw,52px);color:#f4ece0;position:relative;overflow:hidden;">
+        <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true"
+          style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.08;">
+          {[0,1,2].map((i) => {
+            const w = 180 + i * 100;
+            const rx = w / 2;
+            const x = 300 - rx;
+            const y = 400 - (160 + i * 80);
+            return <path d={`M${x} 400 L${x} ${y+rx} A${rx} ${rx} 0 0 1 ${x+w} ${y+rx} L${x+w} 400`} stroke="#fff" stroke-width="1" fill="none"/>;
+          })}
+        </svg>
+        <div style="position:relative;">
+          <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true" style="color:var(--accent);opacity:.7;margin-bottom:20px;">
+            <path d="M0 28V16C0 7.163 5.82 1.48 17.46 0l1.54 3.08C12.56 4.64 9.36 7.74 8.76 12H16V28H0ZM20 28V16C20 7.163 25.82 1.48 37.46 0l1.54 3.08C32.56 4.64 29.36 7.74 28.76 12H36V28H20Z" fill="currentColor"/>
+          </svg>
+          <blockquote style="font-family:var(--font-display);font-size:clamp(18px,2.2vw,24px);line-height:1.4;font-style:italic;margin:0;">
+            "After years of feeling invisible in this system, she made us feel heard — and then she got results."
+          </blockquote>
+          <div style="margin-top:24px;font-size:13px;letter-spacing:.08em;opacity:.7;text-transform:uppercase;font-weight:600;">Former client · Riverside, CA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Services overview ──────────────────────────────────────────────────── -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div style="text-align:center;max-width:56ch;margin:0 auto;">
+        <div class="eyebrow center" style="justify-content:center;">Practice areas</div>
+        <h2 class="display" style="font-size:clamp(30px,4vw,50px);margin-top:16px;">Six areas, one focused practice.</h2>
+        <p style="margin-top:18px;color:var(--ink-soft);font-size:17px;line-height:1.6;">
+          From the first petition to the final court date, Belen Gomez Law handles the full arc of your immigration and estate planning needs.
+        </p>
+      </div>
+      <div style="margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="svc-overview-grid">
+        {services.map((s) => (
+          <a href={`/services/${s.fields.slug}`} style="display:block;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:28px;text-decoration:none;transition:border-color .2s,box-shadow .2s;" class="svc-card">
+            <div style="width:48px;height:56px;border-radius:999px 999px 8px 8px / 55% 55% 8px 8px;background:rgba(200,164,93,.15);border:1px solid rgba(200,164,93,.25);color:var(--primary);display:grid;place-items:center;">
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 28 L5 16 A11 11 0 0 1 27 16 L27 28"/>
+              </svg>
+            </div>
+            <h3 style="font-family:var(--font-display);font-size:19px;font-weight:500;margin-top:18px;">{s.fields.title}</h3>
+            <p style="margin-top:10px;color:var(--ink-soft);font-size:15px;line-height:1.6;">{s.fields.summary}</p>
+            <div style="margin-top:18px;font-size:14px;color:var(--primary);font-weight:500;">Learn more →</div>
+          </a>
+        ))}
+      </div>
+      <div style="margin-top:40px;text-align:center;">
+        <a class="btn btn-primary" href="/services" style="padding:14px 28px;font-size:15px;">See all services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why choose ─────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:start;">
+        <div>
+          <div class="eyebrow">Why clients choose us</div>
+          <h2 class="display" style="font-size:clamp(30px,4vw,50px);margin-top:16px;max-width:16ch;">
+            Representation that treats you like a person.
+          </h2>
+          <p style="margin-top:20px;color:var(--ink-soft);font-size:17px;line-height:1.65;max-width:52ch;">
+            The immigration system is complex, slow, and often dehumanizing. Belen Gomez Law exists to make it navigable — with honesty, preparation, and a real relationship.
+          </p>
+          <!-- Pathway line ornament -->
+          <div style="margin-top:36px;color:var(--accent);opacity:.6;">
+            <svg width="220" height="28" viewBox="0 0 280 64" fill="none" aria-hidden="true">
+              <path d="M2 50 C 60 50, 80 14, 140 14 C 200 14, 220 50, 278 50" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          {WHY.map((w) => (
+            <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:24px;">
+              <div style="font-size:26px;line-height:1;">{w.icon}</div>
+              <h3 style="font-family:var(--font-display);font-size:16px;font-weight:600;margin-top:14px;">{w.heading}</h3>
+              <p style="margin-top:8px;color:var(--ink-soft);font-size:14px;line-height:1.6;">{w.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Media strip ───────────────────────────────────────────────────────── -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="eyebrow">As seen in</div>
+      <div style="margin-top:28px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;align-items:stretch;" class="media-strip-grid">
+        <!-- Magazine cover -->
+        <div style="background:var(--primary);border-radius:var(--r-card);overflow:hidden;position:relative;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;">
+          <img src="/img/magazine-cover.png" alt="San Diego Attorney Journal cover" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45;"/>
+          <div style="position:relative;">
+            <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px;">Featured Interview</div>
+            <div style="font-family:var(--font-display);font-size:21px;color:#f4ece0;line-height:1.3;">San Diego Attorney Journal</div>
+            <a href="https://sdattorneyjournal.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;color:var(--accent-soft);">Read the feature →</a>
+          </div>
+        </div>
+        <!-- Cards -->
+        <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px;">Community</div>
+            <p style="font-family:var(--font-display);font-size:18px;line-height:1.4;">"A respected voice in Riverside's immigrant community — bringing legal clarity to those who need it most."</p>
+          </div>
+          <div style="margin-top:20px;font-size:13px;color:var(--ink-soft);">Press coverage · Inland Empire</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px;">Recognition</div>
+            <p style="font-family:var(--font-display);font-size:18px;line-height:1.4;">AILA member and active contributor to Southern California legal aid networks.</p>
+          </div>
+          <a href="/media" style="margin-top:20px;font-size:13px;color:var(--primary);font-weight:500;">More recognition →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials (React island) ──────────────────────────────────────── -->
+  <TestimonialFeature client:load />
+
+  <!-- ── Final CTA ─────────────────────────────────────────────────────────── -->
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  @media (max-width: 860px) {
+    section > .container > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    .svc-overview-grid { grid-template-columns: 1fr 1fr !important; }
+    .media-strip-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 520px) {
+    .svc-overview-grid { grid-template-columns: 1fr !important; }
+  }
+  .svc-card:hover { border-color: var(--primary) !important; box-shadow: 0 12px 32px -16px rgba(18,60,53,.2); }
+  @keyframes pageIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+</style>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  intro?: string;
+}
+const { eyebrow, title, intro } = Astro.props;
+---
+
+<section class="section tight" style="padding-bottom:0;position:relative;">
+  <div class="container" style="position:relative;">
+    <!-- Arch mark ornament -->
+    <svg width="140" height="147" viewBox="0 0 60 64" fill="none" aria-hidden="true" style="position:absolute;right:var(--pad-x);top:-10px;color:var(--accent);opacity:.35;">
+      <path d="M6 62 L6 30 A24 24 0 0 1 54 30 L54 62" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M14 62 L14 32 A16 16 0 0 1 46 32 L46 62" stroke="currentColor" stroke-width="0.94" fill="none" stroke-linejoin="round" stroke-linecap="round" opacity=".55"/>
+      <line x1="2" y1="62" x2="58" y2="62" stroke="currentColor" stroke-width="0.94" stroke-linecap="round"/>
+    </svg>
+
+    {eyebrow && <div class="eyebrow">{eyebrow}</div>}
+    <h1 class="display" style="font-size:clamp(40px,6vw,76px);margin-top:24px;max-width:18ch;">
+      <Fragment set:html={title} />
+    </h1>
+    {intro && (
+      <p style="margin-top:22px;font-size:clamp(17px,1.4vw,20px);color:var(--ink-soft);max-width:64ch;line-height:1.55;">{intro}</p>
+    )}
+    <!-- Pathway line -->
+    <div style="margin-top:36px;color:var(--accent);opacity:.6;">
+      <svg width="220" height="28" viewBox="0 0 280 64" fill="none" aria-hidden="true">
+        <path d="M2 50 C 60 50, 80 14, 140 14 C 200 14, 220 50, 278 50" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import PageHeader from '../components/shared/PageHeader.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Belen Gomez Law',
+  url: 'https://www.belengomezlaw.com/contact',
+  mainEntity: {
+    '@type': 'LegalService',
+    name: 'Belen Gomez Law',
+    telephone: '+19512990114',
+    email: 'info@belengomezlaw.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '3600 Lime St, Suite 326',
+      addressLocality: 'Riverside',
+      addressRegion: 'CA',
+      postalCode: '92501',
+      addressCountry: 'US',
+    },
+    openingHours: ['Mo-Th 09:30-17:00', 'Fr 09:30-14:00'],
+  },
+};
+---
+
+<BaseLayout
+  title="Contact — Belen Gomez Law, Riverside CA"
+  description="Contact Belen Gomez Law to schedule a confidential immigration or estate planning consultation. Bilingual English/Spanish. Based in Riverside, CA."
+  schema={schema}
+>
+
+  <PageHeader
+    eyebrow="Get in touch"
+    title="Ready to take the <em>next step?</em>"
+    intro="Schedule a confidential consultation in English or Spanish. We respond within one business day."
+  />
+
+  <!-- ── Contact body ──────────────────────────────────────────────────────── -->
+  <section class="section" style="padding-top:clamp(36px,5vw,64px);">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(36px,6vw,80px);align-items:start;" class="contact-grid">
+
+      <!-- Left: info cards + what to expect -->
+      <div style="display:grid;gap:16px;">
+
+        <!-- Phone -->
+        <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:24px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(18,60,53,.08);display:grid;place-items:center;flex:none;color:var(--primary);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.67 11a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:6px;">Phone</div>
+            <a href="tel:9512990114" style="font-family:var(--font-display);font-size:20px;color:var(--primary);font-weight:500;">951-299-0114</a>
+            <div style="margin-top:4px;font-size:13px;color:var(--ink-soft);">Mon–Thu 9:30am–5pm · Fri 9:30am–2pm</div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:24px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(18,60,53,.08);display:grid;place-items:center;flex:none;color:var(--primary);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:6px;">Office</div>
+            <div style="font-size:15px;line-height:1.5;">
+              3600 Lime St, Suite 326<br/>
+              Riverside, CA 92501
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:24px;display:flex;gap:16px;align-items:flex-start;">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(18,60,53,.08);display:grid;place-items:center;flex:none;color:var(--primary);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:8px;">Office hours</div>
+            <table style="font-size:14px;border-collapse:collapse;width:100%;">
+              <tbody>
+                {[
+                  ['Monday – Thursday', '9:30 am – 5:00 pm'],
+                  ['Friday', '9:30 am – 2:00 pm'],
+                  ['Saturday – Sunday', 'Closed'],
+                ].map(([day, hrs]) => (
+                  <tr>
+                    <td style="padding:3px 0;color:var(--ink-soft);padding-right:16px;">{day}</td>
+                    <td style="padding:3px 0;font-weight:500;">{hrs}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- What to expect -->
+        <div style="background:var(--primary);border-radius:var(--r-card);padding:24px;color:#f4ece0;">
+          <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--accent-soft);margin-bottom:14px;">What to expect</div>
+          <ul style="list-style:none;margin:0;padding:0;display:grid;gap:12px;">
+            {[
+              'A confidential, judgment-free conversation',
+              'Direct time with Belen — not a paralegal',
+              'Honest assessment of your options',
+              'Clear next steps and realistic timelines',
+              'Available in English and Spanish',
+            ].map((item) => (
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;opacity:.9;">
+                <svg width="14" height="14" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="flex:none;margin-top:3px;"><path d="M1 5l3 3 5-6" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px);">
+        <h2 style="font-family:var(--font-display);font-size:26px;font-weight:500;margin-bottom:8px;">Send a message</h2>
+        <p style="color:var(--ink-soft);font-size:15px;margin-bottom:28px;">We respond within one business day. All submissions are confidential.</p>
+
+        <form id="contact-form" novalidate style="display:grid;gap:18px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="form-row">
+            <div>
+              <label for="firstName" style="display:block;font-size:13px;font-weight:600;margin-bottom:7px;letter-spacing:.04em;">First name <span style="color:var(--accent);">*</span></label>
+              <input class="input" type="text" id="firstName" name="firstName" required autocomplete="given-name" placeholder="Maria"/>
+            </div>
+            <div>
+              <label for="lastName" style="display:block;font-size:13px;font-weight:600;margin-bottom:7px;letter-spacing:.04em;">Last name <span style="color:var(--accent);">*</span></label>
+              <input class="input" type="text" id="lastName" name="lastName" required autocomplete="family-name" placeholder="Sanchez"/>
+            </div>
+          </div>
+
+          <div>
+            <label for="email" style="display:block;font-size:13px;font-weight:600;margin-bottom:7px;letter-spacing:.04em;">Email <span style="color:var(--accent);">*</span></label>
+            <input class="input" type="email" id="email" name="email" required autocomplete="email" placeholder="maria@email.com"/>
+          </div>
+
+          <div>
+            <label for="phone" style="display:block;font-size:13px;font-weight:600;margin-bottom:7px;letter-spacing:.04em;">Phone number</label>
+            <input class="input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000"/>
+          </div>
+
+          <div>
+            <label for="service" style="display:block;font-size:13px;font-weight:600;margin-bottom:7px;letter-spacing:.04em;">Area of interest <span style="color:var(--accent);">*</span></label>
+            <select class="select" id="service" name="service" required>
+              <option value="">Select a practice area…</option>
+              <option value="immigration">Immigration (visas, adjustment, naturalization)</option>
+              <option value="humanitarian">Humanitarian / U Visa / VAWA</option>
+              <option value="removal">Removal defense / immigration court</option>
+              <option value="family">Family visa petitions</option>
+              <option value="consular">Consular process</option>
+              <option value="estate">Estate planning</option>
+              <option value="other">Not sure / other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="language" style="display:block;font-size:13px;font-weight:600;margin-bottom:7px;letter-spacing:.04em;">Preferred language</label>
+            <select class="select" id="language" name="language">
+              <option value="en">English</option>
+              <option value="es">Spanish / Español</option>
+              <option value="both">Both / Ambos</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" style="display:block;font-size:13px;font-weight:600;margin-bottom:7px;letter-spacing:.04em;">Tell us about your situation <span style="color:var(--accent);">*</span></label>
+            <textarea class="textarea" id="message" name="message" required rows="5" placeholder="Briefly describe what you need help with. No identifying information required at this stage."></textarea>
+          </div>
+
+          <div id="form-error" style="display:none;background:rgba(183,101,74,.1);border:1px solid rgba(183,101,74,.3);border-radius:8px;padding:12px;font-size:14px;color:#8b3c20;"></div>
+          <div id="form-success" style="display:none;background:rgba(18,60,53,.08);border:1px solid rgba(18,60,53,.2);border-radius:8px;padding:16px;font-size:15px;color:var(--primary);text-align:center;"></div>
+
+          <button type="submit" class="btn btn-primary" style="padding:16px;font-size:15px;width:100%;">
+            Send message
+          </button>
+
+          <p style="font-size:12px;color:var(--ink-soft);text-align:center;line-height:1.5;">
+            Submitting this form does not create an attorney-client relationship. All communications are confidential.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+const form = document.getElementById('contact-form') as HTMLFormElement | null;
+const errBox = document.getElementById('form-error') as HTMLElement | null;
+const succBox = document.getElementById('form-success') as HTMLElement | null;
+
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!form || !errBox || !succBox) return;
+
+  errBox.style.display = 'none';
+  succBox.style.display = 'none';
+
+  const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  const data = Object.fromEntries(new FormData(form));
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      form.reset();
+      succBox.textContent = 'Message sent — we will be in touch within one business day.';
+      succBox.style.display = 'block';
+    } else {
+      const body = await res.json().catch(() => ({}));
+      errBox.textContent = body?.error ?? 'Something went wrong. Please call 951-299-0114 directly.';
+      errBox.style.display = 'block';
+    }
+  } catch {
+    errBox.textContent = 'Network error. Please try again or call 951-299-0114 directly.';
+    errBox.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send message';
+  }
+});
+</script>
+
+<style>
+  @media (max-width: 860px) {
+    .container > div[style*="grid-template-columns:1fr 1.4fr"] { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 480px) {
+    .form-row { grid-template-columns: 1fr !important; }
+  }
+</style>
