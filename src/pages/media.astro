@@ -57,7 +57,7 @@ const COMMUNITY = [
   <!-- ── Magazine cover feature ────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(36px,6vw,72px);align-items:center;" class="feature-grid">
+      <div data-animate="fade-up" style="display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(36px,6vw,72px);align-items:center;" class="feature-grid">
         <!-- Cover -->
         <div style="border-radius:var(--r-card);overflow:hidden;box-shadow:0 32px 64px -24px rgba(18,60,53,.25);position:relative;">
           <img src="/img/magazine-cover.png" alt="San Diego Attorney Journal — Belen Gomez feature" style="width:100%;height:auto;display:block;"/>
@@ -89,7 +89,7 @@ const COMMUNITY = [
       <h2 class="display" style="font-size:clamp(26px,3.5vw,42px);margin-top:16px;text-align:center;max-width:24ch;margin-left:auto;margin-right:auto;">
         Recognized by peers, trusted by clients.
       </h2>
-      <div style="margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="recognition-grid">
+      <div data-animate="stagger" style="margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="recognition-grid">
         {RECOGNITION.map((r) => (
           <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:28px;display:flex;gap:16px;align-items:flex-start;">
             <div style="width:40px;height:40px;border-radius:50%;background:rgba(200,164,93,.15);border:1px solid rgba(200,164,93,.25);display:grid;place-items:center;flex:none;color:var(--primary);">
@@ -162,7 +162,7 @@ const COMMUNITY = [
             Beyond casework, Belen Gomez Law invests in the community through education, outreach, and partnership with organizations that serve immigrants who may not yet have access to legal representation.
           </p>
         </div>
-        <div style="display:grid;gap:16px;">
+        <div data-animate="stagger" style="display:grid;gap:16px;">
           {COMMUNITY.map((c) => (
             <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:24px;display:flex;gap:16px;align-items:flex-start;">
               <div style="width:10px;height:10px;border-radius:50%;background:var(--accent);flex:none;margin-top:7px;"></div>
