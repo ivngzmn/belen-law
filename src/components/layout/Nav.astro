@@ -33,10 +33,10 @@ const current = Astro.url.pathname;
 </div>
 
 <!-- Main nav -->
-<header id="site-header" style="position:sticky;top:0;z-index:80;background:var(--bg);border-bottom:1px solid transparent;transition:background .2s ease,border-color .2s ease,backdrop-filter .2s ease;">
+<header id="site-header" transition:name="site-header" style="position:sticky;top:0;z-index:80;background:var(--bg);border-bottom:1px solid transparent;transition:background .2s ease,border-color .2s ease,backdrop-filter .2s ease;">
   <div class="container" style="display:flex;align-items:center;gap:24px;padding:18px var(--pad-x);">
     <!-- Logo -->
-    <a href="/" aria-label="Law Office of Belen Gomez, APC — home" style="display:inline-flex;align-items:center;gap:14px;">
+    <a href="/" transition:name="logo" aria-label="Law Office of Belen Gomez, APC — home" style="display:inline-flex;align-items:center;gap:14px;">
       <img src="/img/brand-mark-transparent.png" alt="" aria-hidden="true" style="height:56px;width:auto;display:block;flex:none;" />
       <span aria-hidden="true" style="width:1px;align-self:stretch;margin:6px 0;background:var(--line);"></span>
       <span style="display:inline-flex;flex-direction:column;line-height:1;">
