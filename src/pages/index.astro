@@ -161,7 +161,7 @@ const WHY = [
 
   <!-- ── Trust bar ─────────────────────────────────────────────────────────── -->
   <section style="background:var(--primary);padding:clamp(20px,3vw,28px) 0;">
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,48px);justify-content:center;align-items:center;">
+    <div data-animate="stagger" class="container" style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,48px);justify-content:center;align-items:center;">
       {['California State Bar Member', 'American Immigration Lawyers Association', 'Southern California Legal Aid Network', 'Featured · San Diego Attorney Journal'].map((t) => (
         <span style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,236,224,.75);font-weight:500;">{t}</span>
       ))}
@@ -215,7 +215,7 @@ const WHY = [
   <!-- ── Services overview ──────────────────────────────────────────────────── -->
   <section class="section bg-alt">
     <div class="container">
-      <div style="text-align:center;max-width:56ch;margin:0 auto;">
+      <div data-animate="fade-up" style="text-align:center;max-width:56ch;margin:0 auto;">
         <div class="eyebrow center" style="justify-content:center;">Practice areas</div>
         <h2 class="display" style="font-size:clamp(30px,4vw,50px);margin-top:16px;">Six areas, one focused practice.</h2>
         <p style="margin-top:18px;color:var(--ink-soft);font-size:17px;line-height:1.6;">
@@ -234,7 +234,7 @@ const WHY = [
           </a>
         ))}
       </div>
-      <div style="margin-top:40px;text-align:center;">
+      <div data-animate="fade-up" style="margin-top:40px;text-align:center;">
         <a class="btn btn-primary" href="/services" style="padding:14px 28px;font-size:15px;">See all services</a>
       </div>
     </div>
@@ -269,7 +269,7 @@ const WHY = [
   <!-- ── Media strip ───────────────────────────────────────────────────────── -->
   <section class="section bg-alt">
     <div class="container">
-      <div class="eyebrow">As seen in</div>
+      <div data-animate="fade-up" class="eyebrow">As seen in</div>
       <div data-animate="stagger" style="margin-top:28px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;align-items:stretch;" class="media-strip-grid">
         <!-- Magazine cover -->
         <div style="background:var(--primary);border-radius:var(--r-card);overflow:hidden;position:relative;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;">

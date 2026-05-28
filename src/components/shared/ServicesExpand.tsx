@@ -65,10 +65,10 @@ export default function ServicesExpand({ services }: { services: ContentfulServi
 
                 {open && (
                   <>
-                    <div style={{ marginTop: 24, fontSize: 11, letterSpacing: '.18em', textTransform: 'uppercase', fontWeight: 600, color: 'var(--accent)' }}>
+                    <div className="svc-reveal-1" style={{ marginTop: 24, fontSize: 11, letterSpacing: '.18em', textTransform: 'uppercase', fontWeight: 600, color: 'var(--accent)' }}>
                       Who this helps
                     </div>
-                    <ul style={{ margin: 0, marginTop: 14, padding: 0, listStyle: 'none', display: 'grid', gap: 10 }}>
+                    <ul className="svc-reveal-2" style={{ margin: 0, marginTop: 14, padding: 0, listStyle: 'none', display: 'grid', gap: 10 }}>
                       {f.whoHelps.map((h, j) => (
                         <li key={j} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                           <span style={{ width: 18, height: 18, borderRadius: 6, background: 'rgba(200,164,93,.2)', display: 'grid', placeItems: 'center', color: 'var(--primary)', marginTop: 3, flex: 'none' }}>
@@ -78,7 +78,7 @@ export default function ServicesExpand({ services }: { services: ContentfulServi
                         </li>
                       ))}
                     </ul>
-                    <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                    <div className="svc-reveal-3" style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                       <a className="btn btn-primary" href="/contact" style={{ padding: '12px 20px', fontSize: 14 }}>Schedule consultation</a>
                       <a className="btn btn-ghost" href="tel:9512990114" style={{ padding: '12px 0', fontSize: 14, color: 'var(--primary)' }}>or call 951-299-0114 →</a>
                     </div>
@@ -87,7 +87,7 @@ export default function ServicesExpand({ services }: { services: ContentfulServi
               </div>
 
               {open && (
-                <div style={{ background: 'var(--bg-alt)', borderRadius: 'var(--r-card)', padding: 24 }}>
+                <div className="svc-reveal-faq" style={{ background: 'var(--bg-alt)', borderRadius: 'var(--r-card)', padding: 24 }}>
                   <div style={{ fontSize: 11, letterSpacing: '.18em', textTransform: 'uppercase', fontWeight: 600, color: 'var(--primary)' }}>
                     Common questions
                   </div>
@@ -111,6 +111,21 @@ export default function ServicesExpand({ services }: { services: ContentfulServi
         );
       })}
       <style>{`
+        @keyframes svcReveal {
+          from { opacity: 0; transform: translateY(10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes svcRevealSide {
+          from { opacity: 0; transform: translateX(14px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+        .svc-reveal-1 { animation: svcReveal 0.3s ease both; }
+        .svc-reveal-2 { animation: svcReveal 0.35s 0.06s ease both; }
+        .svc-reveal-3 { animation: svcReveal 0.35s 0.12s ease both; }
+        .svc-reveal-faq { animation: svcRevealSide 0.4s 0.05s ease both; }
+        @media (prefers-reduced-motion: reduce) {
+          .svc-reveal-1, .svc-reveal-2, .svc-reveal-3, .svc-reveal-faq { animation: none; }
+        }
         @media (max-width: 880px) { .svc-grid { grid-template-columns: 1fr !important; } }
         @media (max-width: 900px) { .svc-open-grid { grid-template-columns: 1fr !important; } }
       `}</style>
