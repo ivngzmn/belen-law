@@ -96,13 +96,13 @@ const others = allServices.filter((s) => s.fields.slug !== f.slug).slice(0, 3);
 
       <!-- Main content -->
       <div>
-        <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);">{f.body}</p>
+        <p data-animate="fade-up" style="font-size:18px;line-height:1.7;color:var(--ink-soft);">{f.body}</p>
 
         <div style="margin-top:40px;">
           <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--accent);">
             Who this helps
           </div>
-          <ul style="margin:0;margin-top:14px;padding:0;list-style:none;display:grid;gap:12px;">
+          <ul data-animate="stagger" style="margin:0;margin-top:14px;padding:0;list-style:none;display:grid;gap:12px;">
             {f.whoHelps.map((h) => (
               <li style="display:flex;gap:12px;align-items:flex-start;">
                 <span style="width:20px;height:20px;border-radius:6px;background:rgba(200,164,93,.2);display:grid;place-items:center;color:var(--primary);margin-top:2px;flex:none;">
@@ -126,7 +126,7 @@ const others = allServices.filter((s) => s.fields.slug !== f.slug).slice(0, 3);
           <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--primary);">
             Common questions
           </div>
-          <div style="margin-top:8px;">
+          <div data-animate="stagger" style="margin-top:8px;">
             {f.faqs.map((faq) => (
               <details class="faq" style="border-color:var(--line-soft);">
                 <summary style="font-size:16px;">
