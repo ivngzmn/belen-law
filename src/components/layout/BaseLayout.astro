@@ -2,6 +2,7 @@
 import BaseHead from './BaseHead.astro';
 import Nav from './Nav.astro';
 import Footer from './Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
 import '../../styles/global.css';
 
 interface Props {
@@ -23,12 +24,16 @@ const { title, description, canonical, ogImage, noIndex, schema } = Astro.props;
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
+    <ViewTransitions />
   </head>
   <body>
     <Nav />
-    <main>
+    <main transition:animate="slide">
       <slot />
     </main>
     <Footer />
+    <script>
+      import '../../scripts/animations';
+    </script>
   </body>
 </html>

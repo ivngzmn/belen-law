@@ -43,26 +43,28 @@ const PROCESS = [
   <!-- ── Services expandable grid ──────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
-      <ServicesExpand client:load services={services} />
+      <div data-animate="fade-up">
+        <ServicesExpand client:load services={services} />
+      </div>
     </div>
   </section>
 
   <!-- ── Process section ───────────────────────────────────────────────────── -->
   <section class="section bg-alt">
     <div class="container">
-      <div class="eyebrow center" style="text-align:center;">How we work</div>
-      <h2 class="display" style="font-size:clamp(28px,3.5vw,46px);margin-top:16px;text-align:center;max-width:22ch;margin-left:auto;margin-right:auto;">
+      <div data-animate="fade-up" class="eyebrow center" style="text-align:center;">How we work</div>
+      <h2 data-animate="fade-up" data-animate-delay="0.05" class="display" style="font-size:clamp(28px,3.5vw,46px);margin-top:16px;text-align:center;max-width:22ch;margin-left:auto;margin-right:auto;">
         A clear path from first call to final resolution.
       </h2>
 
       <!-- Pathway ornament -->
-      <div style="margin-top:16px;color:var(--accent);opacity:.5;display:flex;justify-content:center;">
+      <div data-animate="fade-in" data-animate-delay="0.1" style="margin-top:16px;color:var(--accent);opacity:.5;display:flex;justify-content:center;">
         <svg width="320" height="32" viewBox="0 0 320 64" fill="none" aria-hidden="true">
           <path d="M2 50 C 70 50, 100 14, 160 14 C 220 14, 250 50, 318 50" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
         </svg>
       </div>
 
-      <div style="margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;" class="process-grid">
+      <div data-animate="stagger" style="margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;" class="process-grid">
         <!-- Connector line -->
         <div style="position:absolute;top:28px;left:calc(12.5% + 12px);right:calc(12.5% + 12px);height:1px;background:var(--line);z-index:0;" class="process-line"></div>
 

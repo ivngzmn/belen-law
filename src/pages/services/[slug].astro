@@ -77,11 +77,11 @@ const others = allServices.filter((s) => s.fields.slug !== f.slug).slice(0, 3);
         </ol>
       </nav>
 
-      <div class="eyebrow">Practice area</div>
-      <h1 class="display" style="font-size:clamp(40px,6vw,76px);margin-top:24px;max-width:18ch;">
+      <div data-animate="fade-up" class="eyebrow">Practice area</div>
+      <h1 data-animate="fade-up" data-animate-delay="0.05" class="display" style="font-size:clamp(40px,6vw,76px);margin-top:24px;max-width:18ch;">
         {f.title}
       </h1>
-      <p style="margin-top:22px;font-size:clamp(17px,1.4vw,20px);color:var(--ink-soft);max-width:64ch;line-height:1.55;">{f.summary}</p>
+      <p data-animate="fade-up" data-animate-delay="0.1" style="margin-top:22px;font-size:clamp(17px,1.4vw,20px);color:var(--ink-soft);max-width:64ch;line-height:1.55;">{f.summary}</p>
       <div style="margin-top:36px;color:var(--accent);opacity:.6;">
         <svg width="220" height="28" viewBox="0 0 280 64" fill="none" aria-hidden="true">
           <path d="M2 50 C 60 50, 80 14, 140 14 C 200 14, 220 50, 278 50" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
@@ -96,13 +96,13 @@ const others = allServices.filter((s) => s.fields.slug !== f.slug).slice(0, 3);
 
       <!-- Main content -->
       <div>
-        <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);">{f.body}</p>
+        <p data-animate="fade-up" style="font-size:18px;line-height:1.7;color:var(--ink-soft);">{f.body}</p>
 
         <div style="margin-top:40px;">
           <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--accent);">
             Who this helps
           </div>
-          <ul style="margin:0;margin-top:14px;padding:0;list-style:none;display:grid;gap:12px;">
+          <ul data-animate="stagger" style="margin:0;margin-top:14px;padding:0;list-style:none;display:grid;gap:12px;">
             {f.whoHelps.map((h) => (
               <li style="display:flex;gap:12px;align-items:flex-start;">
                 <span style="width:20px;height:20px;border-radius:6px;background:rgba(200,164,93,.2);display:grid;place-items:center;color:var(--primary);margin-top:2px;flex:none;">
@@ -114,7 +114,7 @@ const others = allServices.filter((s) => s.fields.slug !== f.slug).slice(0, 3);
           </ul>
         </div>
 
-        <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
+        <div data-animate="fade-up" style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
           <a class="btn btn-primary" href="/contact" style="padding:14px 22px;font-size:15px;">Schedule consultation</a>
           <a class="btn btn-ghost" href="tel:9512990114" style="padding:14px 0;font-size:15px;color:var(--primary);">or call 951-299-0114 →</a>
         </div>
@@ -122,11 +122,11 @@ const others = allServices.filter((s) => s.fields.slug !== f.slug).slice(0, 3);
 
       <!-- FAQ sidebar -->
       {f.faqs.length > 0 && (
-        <div style="background:var(--bg-alt);border-radius:var(--r-card);padding:32px;">
+        <div data-animate="fade-up" data-animate-delay="0.1" style="background:var(--bg-alt);border-radius:var(--r-card);padding:32px;">
           <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--primary);">
             Common questions
           </div>
-          <div style="margin-top:8px;">
+          <div data-animate="stagger" style="margin-top:8px;">
             {f.faqs.map((faq) => (
               <details class="faq" style="border-color:var(--line-soft);">
                 <summary style="font-size:16px;">
@@ -148,8 +148,8 @@ const others = allServices.filter((s) => s.fields.slug !== f.slug).slice(0, 3);
   {others.length > 0 && (
     <section class="section bg-alt">
       <div class="container">
-        <div class="eyebrow">Other practice areas</div>
-        <div style="margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;" class="other-grid">
+        <div data-animate="fade-up" class="eyebrow">Other practice areas</div>
+        <div data-animate="stagger" style="margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;" class="other-grid">
           {others.map((s) => (
             <a href={`/services/${s.fields.slug}`} style="display:block;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:24px;text-decoration:none;transition:border-color .2s;">
               <h3 style="font-family:var(--font-display);font-size:17px;font-weight:500;">{s.fields.title}</h3>
