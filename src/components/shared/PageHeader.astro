@@ -16,12 +16,12 @@ const { eyebrow, title, intro } = Astro.props;
       <line x1="2" y1="62" x2="58" y2="62" stroke="currentColor" stroke-width="0.94" stroke-linecap="round"/>
     </svg>
 
-    {eyebrow && <div class="eyebrow">{eyebrow}</div>}
-    <h1 class="display" style="font-size:clamp(40px,6vw,76px);margin-top:24px;max-width:18ch;">
+    {eyebrow && <div class="eyebrow" data-animate="fade-up">{eyebrow}</div>}
+    <h1 class="display" data-animate="fade-up" data-animate-delay="0.05" style="font-size:clamp(40px,6vw,76px);margin-top:24px;max-width:18ch;">
       <Fragment set:html={title} />
     </h1>
     {intro && (
-      <p style="margin-top:22px;font-size:clamp(17px,1.4vw,20px);color:var(--ink-soft);max-width:64ch;line-height:1.55;">{intro}</p>
+      <p data-animate="fade-up" data-animate-delay="0.1" style="margin-top:22px;font-size:clamp(17px,1.4vw,20px);color:var(--ink-soft);max-width:64ch;line-height:1.55;">{intro}</p>
     )}
   </div>
 </section>
