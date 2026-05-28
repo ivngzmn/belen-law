@@ -43,7 +43,9 @@ const PROCESS = [
   <!-- ── Services expandable grid ──────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
-      <ServicesExpand client:load services={services} />
+      <div data-animate="fade-up">
+        <ServicesExpand client:load services={services} />
+      </div>
     </div>
   </section>
 
