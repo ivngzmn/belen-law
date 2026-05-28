@@ -93,7 +93,7 @@ const WHY = [
     <div class="container hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center;">
 
       <!-- Left: copy -->
-      <div style="animation:pageIn .6s ease both;">
+      <div data-animate="fade-up">
         <div class="eyebrow">Bilingual · Experienced · Riverside, CA</div>
         <h1 class="display" style="font-size:clamp(40px,5.5vw,72px);margin-top:20px;max-width:14ch;">
           Immigration law<br/>
@@ -121,7 +121,7 @@ const WHY = [
       </div>
 
       <!-- Right: arch-framed portrait -->
-      <div class="hero-portrait" style="display:flex;justify-content:center;animation:pageIn .6s .15s ease both;opacity:0;animation-fill-mode:both;">
+      <div class="hero-portrait" data-animate="fade-up" data-animate-delay="0.1" style="display:flex;justify-content:center;">
         <div style="position:relative;width:clamp(280px,38vw,440px);">
           <!-- Arch frame — behind the photo -->
           <svg viewBox="0 0 300 340" fill="none" aria-hidden="true"
@@ -171,7 +171,7 @@ const WHY = [
   <!-- ── About preview ─────────────────────────────────────────────────────── -->
   <section style="padding:clamp(80px,12vw,140px) 0;">
     <div class="container about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,96px);align-items:center;">
-      <div>
+      <div data-animate="fade-right">
         <div class="eyebrow">About the firm</div>
         <h2 class="display" style="font-size:clamp(32px,4vw,54px);margin-top:18px;max-width:18ch;line-height:1.1;">
           An attorney who understands both sides of the border.
@@ -188,7 +188,7 @@ const WHY = [
         </a>
       </div>
       <!-- Quote card — taller, more generous padding -->
-      <div style="background:var(--primary);border-radius:var(--r-lg);padding:clamp(44px,6vw,72px);color:#f4ece0;position:relative;overflow:hidden;">
+      <div data-animate="fade-left" style="background:var(--primary);border-radius:var(--r-lg);padding:clamp(44px,6vw,72px);color:#f4ece0;position:relative;overflow:hidden;">
         <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true"
           style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.08;">
           {[0,1,2].map((i) => {
@@ -222,7 +222,7 @@ const WHY = [
           From the first petition to the final court date, Belen Gomez Law handles the full arc of your immigration and estate planning needs.
         </p>
       </div>
-      <div style="margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="svc-overview-grid">
+      <div data-animate="stagger" style="margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="svc-overview-grid">
         {services.map((s) => (
           <a href={`/services/${s.fields.slug}`} style="display:block;background:var(--card);border:1px solid var(--line-soft);border-top:3px solid var(--accent);border-radius:var(--r-card);padding:28px;text-decoration:none;transition:border-color .2s,box-shadow .2s;" class="svc-card">
             <div style="width:48px;height:56px;border-radius:999px 999px 8px 8px / 55% 55% 8px 8px;background:rgba(200,164,93,.15);border:1px solid rgba(200,164,93,.25);color:var(--primary);display:grid;place-items:center;">
@@ -300,7 +300,9 @@ const WHY = [
   </section>
 
   <!-- ── Testimonials (React island) ──────────────────────────────────────── -->
-  <TestimonialFeature client:load />
+  <div data-animate="fade-up">
+    <TestimonialFeature client:load />
+  </div>
 
   <!-- ── Final CTA ─────────────────────────────────────────────────────────── -->
   <FinalCTA />
@@ -329,5 +331,4 @@ const WHY = [
   .svc-card:hover { border-color: var(--primary) !important; box-shadow: 0 12px 32px -16px rgba(18,60,53,.2); }
   .call-btn:hover { background: var(--primary); color: #fff !important; }
   .about-link:hover { border-color: var(--primary); }
-  @keyframes pageIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 </style>
