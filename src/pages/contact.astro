@@ -42,7 +42,7 @@ const schema = {
     <div class="container contact-grid" style="display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(36px,6vw,80px);align-items:start;">
 
       <!-- Left: info cards + what to expect -->
-      <div style="display:grid;gap:16px;">
+      <div data-animate="stagger" style="display:grid;gap:16px;">
 
         <!-- Phone -->
         <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:24px;display:flex;gap:16px;align-items:flex-start;">
@@ -123,7 +123,7 @@ const schema = {
       </div>
 
       <!-- Right: contact form -->
-      <div style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px);">
+      <div data-animate="fade-up" data-animate-delay="0.1" style="background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px);">
         <h2 style="font-family:var(--font-display);font-size:26px;font-weight:500;margin-bottom:8px;">Send a message</h2>
         <p style="color:var(--ink-soft);font-size:15px;margin-bottom:28px;">We respond within one business day. All submissions are confidential.</p>
 
