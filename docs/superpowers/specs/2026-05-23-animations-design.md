@@ -3,14 +3,14 @@
 **Branch:** `feat/animations`  
 **Approach:** Data-attribute driven (Approach A)  
 **Intensity:** Polished & fluid (Option B) — fades + directional slides, View Transitions with named elements  
-**Library:** `motion` (`@motionone/dom`) for scroll animations  
+**Library:** `gsap` + `ScrollTrigger` plugin for scroll animations  
 
 ---
 
 ## Goals
 
 - Add Astro View Transitions for smooth client-side page navigation
-- Add scroll-triggered entrance animations using the Motion library
+- Add scroll-triggered entrance animations using GSAP + ScrollTrigger
 - Keep the law firm brand feeling premium and professional — nothing flashy
 - Zero regression on accessibility (`prefers-reduced-motion` fully respected)
 - No hydration overhead — animations run as vanilla JS, not React
@@ -41,10 +41,13 @@ Runs on `DOMContentLoaded` (initial load) and on every `astro:page-load` event (
 
 **Initialisation sequence:**
 1. Check `window.matchMedia('(prefers-reduced-motion: reduce)').matches` — if true, return immediately; all elements render at full opacity with no offsets
-2. Query all `[data-animate]` elements in the document
-3. Apply initial hidden state via inline styles (opacity + transform offset)
-4. Wire each element to Motion's `inView()` — fires entrance animation when element is ≥20% visible in viewport
-5. Animations fire **once only** — no re-animation on scroll back up
+2. Kill all existing `ScrollTrigger` instances (`ScrollTrigger.getAll().forEach(st => st.kill())`) — required before re-init on `astro:page-load` to avoid accumulating observers
+3. Query all `[data-animate]` elements in the document
+4. Apply initial hidden state via `gsap.set()` (opacity + transform offset)
+5. Wire each element to a `ScrollTrigger` with `once: true` — fires entrance animation when element's top edge reaches 80% from the top of the viewport (≥20% visible)
+6. Stagger parents: children animated in sequence via GSAP's `stagger` option, 80ms apart
+
+**Easing:** `power2.out` (GSAP equivalent of `cubic-bezier(0.25, 0.1, 0.25, 1)`)
 
 **Script injection:** Added as a `<script>` tag in `BaseLayout.astro`. Runs as vanilla JS — no `client:load` hydration.
 
@@ -151,8 +154,8 @@ Runs on `DOMContentLoaded` (initial load) and on every `astro:page-load` event (
 | **Modify** | `src/pages/services/[slug].astro` — add `data-animate` |
 | **Modify** | `src/pages/media.astro` — add `data-animate` throughout |
 | **Modify** | `src/pages/contact.astro` — add `data-animate` |
-| **Create** | `src/scripts/animations.ts` — Motion scroll animation module |
-| **Install** | `motion` package via pnpm |
+| **Create** | `src/scripts/animations.ts` — GSAP + ScrollTrigger scroll animation module |
+| **Install** | `gsap` package via pnpm |
 
 ---
 
