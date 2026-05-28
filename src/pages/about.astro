@@ -73,15 +73,15 @@ const CREDENTIALS = [
         <div style="display:grid;gap:28px;">
           <div>
             <h2 class="display" style="font-size:clamp(26px,3vw,36px);">From the Inland Empire, for the Inland Empire.</h2>
-            <p style="margin-top:18px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
+            <p data-animate="fade-up" style="margin-top:18px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
               Belen Gomez grew up in Riverside County and has spent her entire legal career serving the community she knows best. She launched her practice in 2014 with a single focus: helping immigrant families navigate a complex and often intimidating system with clarity and confidence.
             </p>
-            <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
+            <p data-animate="fade-up" data-animate-delay="0.05" style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
               Fluent in both English and Spanish, she conducts every consultation in the client's language — not through an interpreter, but directly. That directness shapes everything about how the practice operates.
             </p>
           </div>
 
-          <div style="background:var(--bg-alt);border-radius:var(--r-card);padding:32px;border-left:3px solid var(--accent);">
+          <div data-animate="fade-in" style="background:var(--bg-alt);border-radius:var(--r-card);padding:32px;border-left:3px solid var(--accent);">
             <blockquote style="font-family:var(--font-display);font-size:clamp(19px,2vw,24px);line-height:1.4;font-style:italic;color:var(--ink);margin:0;">
               "Immigration law is not just about forms and filings. It is about people making the most consequential decisions of their lives. I take that seriously."
             </blockquote>
@@ -90,10 +90,10 @@ const CREDENTIALS = [
 
           <div>
             <h2 class="display" style="font-size:clamp(22px,2.5vw,30px);">A full-service practice for mixed-status families.</h2>
-            <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
+            <p data-animate="fade-up" style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
               In 2019, Belen expanded her practice to include estate planning — a natural extension of her immigration work. Mixed-status families face unique challenges when planning for the future, and she believes every family deserves clear, coordinated guidance across both areas.
             </p>
-            <p style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
+            <p data-animate="fade-up" data-animate-delay="0.05" style="margin-top:16px;color:var(--ink-soft);font-size:17px;line-height:1.7;">
               Whether she is preparing a family-based petition, defending a client in removal proceedings, or drafting a trust for a family with complex circumstances, her approach is the same: thorough preparation, honest communication, and a focus on results.
             </p>
           </div>
@@ -110,7 +110,7 @@ const CREDENTIALS = [
       <div style="margin-top:52px;position:relative;">
         <!-- Vertical line -->
         <div style="position:absolute;left:80px;top:0;bottom:0;width:1px;background:var(--line);"></div>
-        <div style="display:grid;gap:0;">
+        <div data-animate="stagger" style="display:grid;gap:0;">
           {TIMELINE.map((t, i) => (
             <div style="display:grid;grid-template-columns:80px auto;gap:0;padding-bottom:36px;">
               <div style="display:flex;flex-direction:column;align-items:center;">
@@ -141,7 +141,7 @@ const CREDENTIALS = [
           She is an active participant in Riverside County's immigrant-serving nonprofit network and regularly speaks at community events on immigration rights and estate planning for families.
         </p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div data-animate="stagger" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         {[
           { num: '13+', label: 'Years in practice' },
           { num: 'EN/ES', label: 'Bilingual consultations' },
