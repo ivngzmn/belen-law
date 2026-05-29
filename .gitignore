@@ -30,3 +30,7 @@ yarn-error.log*
 
 # AI
 .claude/.superpowers/
+
+# QA & local tooling artifacts
+qa-screenshots/
+docs/superpowers/
