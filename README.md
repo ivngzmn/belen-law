@@ -2,23 +2,23 @@
 
 Official website for the **Law Office of Belen Gomez, APC** — a bilingual immigration and estate planning law practice based in Riverside, CA.
 
-Live: [belengomezlaw.com](https://www.belengomezlaw.com)
+Live: [belengomezlaw.com](belengomezlaw.vercel.app)
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | [Astro 5](https://astro.build) — SSR with View Transitions |
-| UI Components | [React 19](https://react.dev) (Astro islands) |
-| Styling | [Tailwind CSS 3](https://tailwindcss.com) + custom CSS properties |
-| Animations | [GSAP 3](https://gsap.com) with ScrollTrigger |
-| CMS | [Contentful](https://contentful.com) — services content |
-| Deployment | [Vercel](https://vercel.com) via `@astrojs/vercel` adapter |
-| Language | TypeScript 5 |
-| Package Manager | pnpm |
-| Node | ≥ 24 |
+| Layer           | Technology                                                        |
+| --------------- | ----------------------------------------------------------------- |
+| Framework       | [Astro 5](https://astro.build) — SSR with View Transitions        |
+| UI Components   | [React 19](https://react.dev) (Astro islands)                     |
+| Styling         | [Tailwind CSS 3](https://tailwindcss.com) + custom CSS properties |
+| Animations      | [GSAP 3](https://gsap.com) with ScrollTrigger                     |
+| CMS             | [Contentful](https://contentful.com) — services content           |
+| Deployment      | [Vercel](https://vercel.com) via `@astrojs/vercel` adapter        |
+| Language        | TypeScript 5                                                      |
+| Package Manager | pnpm                                                              |
+| Node            | ≥ 24                                                              |
 
 ---
 
@@ -50,14 +50,14 @@ src/
 
 ## Pages
 
-| Route | Status | Notes |
-|---|---|---|
-| `/` | ✅ Live | Home — hero, services grid, testimonials, CTA |
-| `/about` | ✅ Live | Bio, career timeline, credentials, language section |
-| `/services` | ✅ Live | Practice areas overview |
-| `/services/[slug]` | ✅ Live | Dynamic pages powered by Contentful |
-| `/contact` | ✅ Live | Contact form + office info |
-| `/media` | ✅ Live | Press features & community highlights |
+| Route              | Status  | Notes                                               |
+| ------------------ | ------- | --------------------------------------------------- |
+| `/`                | ✅ Live | Home — hero, services grid, testimonials, CTA       |
+| `/about`           | ✅ Live | Bio, career timeline, credentials, language section |
+| `/services`        | ✅ Live | Practice areas overview                             |
+| `/services/[slug]` | ✅ Live | Dynamic pages powered by Contentful                 |
+| `/contact`         | ✅ Live | Contact form + office info                          |
+| `/media`           | ✅ Live | Press features & community highlights               |
 
 ---
 
