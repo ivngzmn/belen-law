@@ -29,7 +29,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # AI
-.claude/.superpowers/
+.claude/
 
 # QA & local tooling artifacts
 qa-screenshots/
