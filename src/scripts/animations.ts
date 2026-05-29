@@ -75,4 +75,10 @@ function initAnimations() {
 }
 
 document.addEventListener('DOMContentLoaded', initAnimations);
-document.addEventListener('astro:page-load', initAnimations);
+document.addEventListener('astro:page-load', () => {
+  initAnimations();
+  // After View Transitions swap the DOM, ScrollTrigger's cached positions
+  // are stale from the previous page. refresh() forces a recalculation so
+  // every trigger fires at the correct scroll offset on the new page.
+  ScrollTrigger.refresh();
+});

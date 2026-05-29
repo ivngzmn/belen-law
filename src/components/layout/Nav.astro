@@ -116,49 +116,77 @@ const current = Astro.url.pathname;
 </style>
 
 <script>
-  // Sticky header scroll effect
-  const header = document.getElementById('site-header')!;
-  const onScroll = () => {
+  // Sticky header — attached to window so it survives across View Transitions
+  let scrollListenerAttached = false;
+  const MOBILE_BP = 920;
+
+  function onScroll() {
+    const header = document.getElementById('site-header');
+    if (!header) return;
     const scrolled = window.scrollY > 8;
-    header.style.background = scrolled
-      ? 'rgba(248,243,234,0.92)'
-      : 'var(--bg)';
+    header.style.background = scrolled ? 'rgba(248,243,234,0.92)' : 'var(--bg)';
     header.style.backdropFilter = scrolled ? 'saturate(140%) blur(10px)' : 'none';
     (header.style as any).WebkitBackdropFilter = scrolled ? 'saturate(140%) blur(10px)' : 'none';
     header.style.borderBottom = scrolled ? '1px solid var(--line-soft)' : '1px solid transparent';
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // Mobile drawer
-  const open  = document.getElementById('nav-open')!;
-  const close = document.getElementById('nav-close')!;
-  const scrim = document.getElementById('nav-scrim')!;
-  const drawer = document.getElementById('nav-drawer')!;
-
-  const MOBILE_BP = 920;
+  }
 
   function openDrawer() {
-    if (window.innerWidth > MOBILE_BP) return; // never open on desktop
+    if (window.innerWidth > MOBILE_BP) return;
+    const open   = document.getElementById('nav-open');
+    const drawer = document.getElementById('nav-drawer');
+    const scrim  = document.getElementById('nav-scrim');
+    if (!open || !drawer || !scrim) return;
     drawer.style.transform = 'translateX(0)';
     drawer.setAttribute('aria-hidden', 'false');
     scrim.classList.add('open');
     open.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
+
   function closeDrawer() {
+    const open   = document.getElementById('nav-open');
+    const drawer = document.getElementById('nav-drawer');
+    const scrim  = document.getElementById('nav-scrim');
+    if (!drawer || !scrim) return;
     drawer.style.transform = 'translateX(102%)';
     drawer.setAttribute('aria-hidden', 'true');
     scrim.classList.remove('open');
-    open.setAttribute('aria-expanded', 'false');
+    open?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
 
-  // Also close and restore body scroll if viewport is resized to desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > MOBILE_BP) closeDrawer();
-  }, { passive: true });
+  // Astro View Transitions replaces ALL elements on navigation (including those
+  // with transition:name — the morph is visual only; the DOM node is new).
+  // So we re-query and re-attach every listener on every page load.
+  function initDrawer() {
+    const open   = document.getElementById('nav-open');
+    const close  = document.getElementById('nav-close');
+    const drawer = document.getElementById('nav-drawer');
+    const scrim  = document.getElementById('nav-scrim');
+    if (!open || !close || !drawer || !scrim) return;
 
-  open.addEventListener('click', openDrawer);
-  close.addEventListener('click', closeDrawer);
-  scrim.addEventListener('click', closeDrawer);
+    // Reset any stale state left over from the previous page
+    closeDrawer();
+
+    open.addEventListener('click', openDrawer);
+    close.addEventListener('click', closeDrawer);
+    scrim.addEventListener('click', closeDrawer);
+
+    // Restore body scroll before any View Transition begins
+    drawer.querySelectorAll<HTMLAnchorElement>('a[href]').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    // Attach window listeners only once — they survive across navigations
+    if (!scrollListenerAttached) {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > MOBILE_BP) closeDrawer();
+      }, { passive: true });
+      scrollListenerAttached = true;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initDrawer);
+  document.addEventListener('astro:page-load', initDrawer);
 </script>
