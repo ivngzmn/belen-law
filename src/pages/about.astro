@@ -50,7 +50,7 @@ const CREDENTIALS = [
     <div class="container" style="display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(40px,7vw,96px);align-items:start;">
 
       <!-- Sticky portrait column -->
-      <div data-animate="fade-up" style="position:sticky;top:120px;">
+      <div data-animate="fade-up">
         <div style="border-radius:9999px 9999px 18px 18px / 50% 50% 18px 18px;overflow:hidden;background:var(--muted);">
           <img src="/img/portrait.webp" alt="Attorney Belen Gomez" style="width:100%;height:auto;display:block;"/>
         </div>
@@ -167,7 +167,5 @@ const CREDENTIALS = [
     section .container[style*="grid-template-columns:1fr 1.6fr"] { grid-template-columns: 1fr !important; }
     /* Language & community (container IS the grid) */
     section .container[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
-    /* Unstick portrait column when bio grid stacks */
-    section .container > div[style*="position:sticky"] { position: static !important; }
   }
 </style>
